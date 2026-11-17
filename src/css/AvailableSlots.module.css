@@ -1,0 +1,81 @@
+.container {
+  background-color: #ffffff;
+  padding: 12px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007B8E;
+  margin-bottom: 12px;
+}
+
+.slotGrid {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.slotBox {
+  flex: 1;
+  padding: 12px;
+  margin: 0 4px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #007b8e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  outline: none;
+}
+
+.slotBox:hover {
+  background-color: #f0f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 123, 142, 0.1);
+}
+
+.selectedSlotBox {
+  background-color: #007B8E !important;
+  border-color: #007B8E;
+}
+
+.selectedSlotBox:hover {
+  background-color: #005a67 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 142, 0.3);
+}
+
+.emptySlot {
+  flex: 1;
+  margin: 0 4px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.slotText {
+  font-size: 14px;
+  color: #333333;
+  font-weight: normal;
+}
+
+.selectedSlotText {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.noSlotsText {
+  text-align: center;
+  color: #666;
+  margin: 10px 0;
+  font-size: 14px;
+}

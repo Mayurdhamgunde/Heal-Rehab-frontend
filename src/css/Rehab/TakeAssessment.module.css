@@ -1,0 +1,852 @@
+/* TakeAssessment.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #02525f;
+  --primary-container: #04a295;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --tertiary: #924628;
+  --error: #ba1a1a;
+
+  --surface: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3d4947;
+  --on-secondary-fixed: #131b2e;
+
+  --shadow-ambient:
+    0 4px 15px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.05);
+  --shadow-hover:
+    0 6px 20px rgba(15, 23, 42, 0.06), 0 10px 35px rgba(15, 23, 42, 0.08);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  font-family: "Inter", sans-serif;
+  color: var(--on-surface);
+  padding: 0 1.5rem;
+}
+
+/* --- Header Styles --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.title {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--on-surface-variant);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0;
+  width: 140px;
+}
+
+.backButton:hover {
+  color: var(--primary);
+  transform: translateX(-4px);
+}
+
+.headerSpacer {
+  width: 140px;
+}
+
+/* --- Main Card --- */
+.card {
+  background: var(--surface-container-lowest);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  box-shadow: var(--shadow-ambient);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- NEW: Clean Vertical List Selection UI --- */
+.templateSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.selectionHeader h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.35rem;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.4rem 0;
+}
+
+.selectionHeader p {
+  color: var(--on-surface-variant);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.templateList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.templateListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.templateListItem:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.templateItemMain {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.templateItemIcon {
+  width: 38px;
+  height: 38px;
+  background: rgba(2, 82, 95, 0.08);
+  color: var(--primary);
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.templateItemText {
+  display: flex;
+  flex-direction: column;
+}
+
+.templateItemText h4 {
+  margin: 0 0 0.25rem 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+}
+
+.templateItemText p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+}
+
+.templateItemArrow {
+  color: #cbd5e1;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.templateListItem:hover .templateItemArrow {
+  color: var(--primary);
+}
+
+/* --- Active Template Banner --- */
+.activeTemplateHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.activeTemplateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.templateBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.activeTemplateInfo h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--on-secondary-fixed);
+}
+
+.changeTemplateBtn {
+  background: white;
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+  padding: 6px 12px;
+  border-radius: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.changeTemplateBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Progress Bar UI --- */
+.progressWrapper {
+  margin-bottom: 2rem;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stepCounter {
+  background: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stepCurrentTitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  text-align: right;
+  flex: 1;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--surface-container-low);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Step Content Area --- */
+.stepContent {
+  flex: 1;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Question Blocks --- */
+.formLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.questionBlock {
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
+  position: relative;
+  overflow: visible; /* <--- CHANGED FROM hidden */
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.questionBlock:focus-within,
+.questionBlock:hover {
+  border-color: rgba(188, 201, 198, 0.5);
+  box-shadow: var(--shadow-ambient);
+}
+
+.questionBlock::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary);
+  border-radius: 4px 0 0 4px;
+  opacity: 0.8;
+}
+
+.questionTitle {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.questionDesc {
+  font-size: 0.8rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 1rem;
+}
+
+/* --- Standard Inputs --- */
+.textInput,
+.selectInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-low);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.textInput:focus,
+.selectInput:focus {
+  background: var(--surface-container-lowest);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 82, 95, 0.1);
+}
+
+/* --- Options (Radio/Checkbox) --- */
+.optionsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--on-secondary-fixed);
+  padding: 8px 12px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  background: var(--surface-container-lowest);
+  transition: all 0.2s ease;
+}
+
+.optionLabel:hover {
+  background: var(--surface-container-low);
+  border-color: rgba(188, 201, 198, 0.4);
+}
+
+.optionLabel input[type="radio"],
+.optionLabel input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* --- Inline Blanks --- */
+.inlineBlanksWrapper {
+  line-height: 2;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+}
+
+.inlineInput {
+  margin: 0 6px;
+  padding: 2px 8px;
+  border: none;
+  border-bottom: 2px solid var(--primary);
+  background: var(--surface-container-low);
+  color: var(--on-secondary-fixed);
+  font-weight: 700;
+  text-align: center;
+  border-radius: 4px 4px 0 0;
+  min-width: 80px;
+  outline: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.inlineInput:focus {
+  background: rgba(0, 104, 95, 0.1);
+}
+
+.inlineSelect {
+  margin: 0 6px;
+  padding: 2px 8px;
+  border: none;
+  border-bottom: 2px solid var(--primary);
+  background: var(--surface-container-low);
+  color: var(--on-secondary-fixed);
+  font-weight: 700;
+  border-radius: 4px 4px 0 0;
+  outline: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* --- Advanced Table --- */
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  border-radius: 0.5rem;
+  background: var(--surface-container-lowest);
+  margin-top: 8px;
+}
+
+.advancedTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tableHeader th {
+  padding: 10px 12px;
+  background: var(--surface-container-low);
+  border-bottom: 2px solid rgba(188, 201, 198, 0.3);
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tableRow {
+  border-bottom: 1px solid rgba(188, 201, 198, 0.2);
+}
+
+.tableCell {
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.cellLabel {
+  font-weight: 600;
+  color: var(--on-secondary-fixed);
+  font-size: 0.85rem;
+}
+
+.cellSrNo {
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.cellInput {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  outline: none;
+  background: var(--surface-container-low);
+  color: var(--on-secondary-fixed);
+  transition: all 0.2s ease;
+}
+
+.rowLabelWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cellInputInline {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  outline: none;
+  background: var(--surface-container-low);
+  color: var(--on-secondary-fixed);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cellInputInline:focus {
+  border-color: var(--primary);
+  background: var(--surface-container-lowest);
+  box-shadow: 0 0 0 3px rgba(2, 82, 95, 0.1);
+}
+
+.cellInput:focus {
+  border-color: var(--primary);
+  background: var(--surface-container-lowest);
+}
+
+.cellUnit {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  margin-left: 4px;
+}
+
+.rubricText {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-style: italic;
+  display: block;
+}
+
+/* --- Notes Section --- */
+.notesTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.5rem 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-low);
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.textarea:focus {
+  background: var(--surface-container-lowest);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 82, 95, 0.1);
+}
+
+/* --- Assessment Date Field --- */
+.dateFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(188, 201, 198, 0.25);
+}
+
+.dateFieldLabel {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dateFieldLabel span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  background: rgba(188, 201, 198, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.dateInput {
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-low);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.dateInput:focus {
+  background: var(--surface-container-lowest);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 82, 95, 0.1);
+  color: var(--on-secondary-fixed);
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.dateInput:hover::-webkit-calendar-picker-indicator,
+.dateInput:focus::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  filter: invert(20%) sepia(80%) saturate(500%) hue-rotate(155deg); /* tints icon to --primary */
+}
+
+/* --- Smart Compose (clinical notes autocomplete) --- */
+.composeWrapper {
+  position: relative;
+}
+
+/* Sits behind the textarea and owns the visible background/border —
+   the textarea on top becomes transparent so this shows through. */
+.composeBackdrop {
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  font-size: 0.85rem;
+  font-family: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--surface-container-low);
+  transition: all 0.2s ease;
+}
+
+.composeBackdropFocused {
+  background: var(--surface-container-lowest);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 82, 95, 0.1);
+}
+
+/* Invisible — exists only so the grey suggestion lines up after it */
+.composeBackdropTyped {
+  color: transparent;
+}
+
+.composeBackdropSuggestion {
+  color: rgba(2, 82, 95, 0.45);
+}
+
+.textareaCompose {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  background: transparent;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  caret-color: var(--on-surface-variant);
+}
+
+.composeHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.7rem;
+  color: var(--on-surface-variant);
+  opacity: 0.75;
+  font-family: "Manrope", sans-serif;
+}
+
+.composeHint kbd {
+  background: rgba(188, 201, 198, 0.25);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: monospace;
+  font-size: 0.68rem;
+  border: 1px solid rgba(188, 201, 198, 0.4);
+}
+
+.backdatedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--tertiary);
+  background: rgba(146, 70, 40, 0.08);
+  border: 1px solid rgba(146, 70, 40, 0.2);
+  padding: 3px 10px;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+  width: fit-content;
+}
+
+/* --- Footer Navigation --- */
+.stepFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(188, 201, 198, 0.2);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.navButtonSecondary {
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  border: 1px solid rgba(188, 201, 198, 0.3);
+}
+
+.navButtonSecondary:hover:not(:disabled) {
+  background: rgba(188, 201, 198, 0.2);
+  color: var(--primary);
+}
+
+.navButtonPrimary {
+  background-color: var(--primary);
+  color: var(--surface-container-lowest);
+  border: none;
+  box-shadow: 0 2px 4px rgba(2, 82, 95, 0.2);
+}
+
+.navButtonPrimary:hover:not(:disabled) {
+  background-color: var(--primary-container);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(2, 82, 95, 0.3);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Loading States --- */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+/* --- Department Grouping Headers --- */
+.departmentGroupHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  background: var(--surface-container-low);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  border-left: 4px solid var(--primary);
+}
+
+.departmentGroupHeader:first-child {
+  margin-top: 0;
+}
+
+.folderIcon {
+  color: var(--primary);
+}
+
+/* --- Sequence Badge --- */
+.sequenceBadge {
+  background: #e0f2f1;
+  color: #00796b;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  min-width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.sequenceBadgeDash {
+  background: #f1f5f9;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  min-width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}

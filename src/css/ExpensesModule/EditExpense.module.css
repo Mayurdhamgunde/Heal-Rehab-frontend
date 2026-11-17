@@ -1,0 +1,315 @@
+:root {
+  --primary-color: #007b8e;
+  --primary-button: #00cfc8;
+  --primary-dark: #005b6a;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --background: transparent;
+  --white: #ffffff;
+  --border-color: #e5e7eb;
+  --hover-bg: #f9fafb;
+  --success-bg: #d1fae5;
+  --success-text: #065f46;
+  --error-bg: #fee2e2;
+  --error-text: #991b1b;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--background);
+}
+
+/* ── Header ── */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text-dark);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: var(--primary-color);
+}
+
+.pageTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #007b8e;
+  margin: 0;
+}
+
+/* ── Card ── */
+.formCard {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Sections & Divider ── */
+.section1Block, .section2Block {
+  border-left: 3px solid #99d3dc;
+  border-radius: 2px;
+  padding-left: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.sectionDivider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0 0 1.5rem 0;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 0 0 1.5rem 0;
+}
+
+/* ── Form Grid & Inputs ── */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2.5rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  transition: all 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ── Dropzone ── */
+.dropzone {
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--white);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropzone:hover {
+  border-color: var(--primary-color);
+  background-color: #f0f9fa;
+}
+
+.uploadIcon {
+  color: #007b8e;
+  margin-bottom: 0.5rem;
+}
+
+.uploadText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.uploadSubtext {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.selectedFile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #e6f6f7;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  color: var(--primary-dark);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Buttons ── */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancelBtn {
+  padding: 0.625rem 2rem;
+  background: var(--white);
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelBtn:hover {
+  background: var(--hover-bg);
+  color: var(--text-dark);
+}
+
+.saveBtn {
+  padding: 0.625rem 2rem;
+  background: var(--primary-button);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: var(--primary-color);
+}
+
+.saveBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Alerts ── */
+.alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.alertSuccess {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid #a7f3d0;
+}
+
+.alertError {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid #fecaca;
+}
+
+/* ── Loader for Edit Page ── */
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--hover-bg);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loaderText {
+  margin-top: 1rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    padding: 1rem;
+  }
+}

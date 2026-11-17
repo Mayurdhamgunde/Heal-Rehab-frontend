@@ -1,0 +1,457 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #00685f;
+  --primary-container: #008378;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --tertiary: #924628;
+  --error: #ba1a1a;
+
+  --surface: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3d4947;
+  --on-secondary-fixed: #131b2e;
+
+  --shadow-ambient:
+    0 4px 15px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.05);
+  --shadow-hover:
+    0 6px 20px rgba(15, 23, 42, 0.06), 0 10px 35px rgba(15, 23, 42, 0.08);
+}
+
+/* --- Layout & Typography --- */
+.dashboardLayout {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fontHeadline {
+  font-family: "Manrope", sans-serif;
+}
+
+.fontBody {
+  font-family: "Inter", sans-serif;
+}
+
+/* --- Top Control Bar (Filters) --- */
+.topControlBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-container-lowest);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.3);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+}
+
+.filterIcon {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.filterSelect,
+.filterInput {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--on-surface);
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.filterToText {
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  margin: 0 0.25rem;
+}
+
+.filterApplyBtn {
+  background: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.filterApplyBtn:hover {
+  opacity: 0.9;
+}
+
+/* --- Separate KPI Tiles --- */
+.kpiWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.kpiCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 175px; /* Increased slightly to fit Axes seamlessly */
+  padding: 1.25rem 1.25rem 0 1.25rem !important;
+  overflow: hidden;
+}
+
+.kpiHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  z-index: 2;
+}
+
+.kpiTopLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kpiHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.headerIconSmall {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.textTertiary {
+  color: var(--tertiary);
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpiValueRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.kpiValueTop {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  font-family: "Manrope", sans-serif;
+  line-height: 1;
+}
+
+.avatarGroup {
+  display: flex;
+  align-items: center;
+}
+
+.avatarImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--surface-container-lowest);
+  object-fit: cover;
+  margin-left: -10px;
+  background-color: var(--surface-container-low);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.avatarImage:hover {
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+.avatarGroup .avatarImage:first-child {
+  margin-left: 0;
+}
+
+/* --- Massive Edge-to-Edge Sparkline with Axes Support --- */
+.largeSparklineWrapper {
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  margin-bottom: -1rem; /* Avoid clipping X-axis text */
+  height: 110px;
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+.trendBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.trendPositive {
+  background-color: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+}
+
+.trendNegative {
+  background-color: rgba(186, 26, 26, 0.1);
+  color: var(--error);
+}
+
+/* --- Skeleton Loading States --- */
+.skeletonBlock {
+  background: linear-gradient(
+    90deg,
+    var(--surface-container-low) 25%,
+    var(--surface-container-lowest) 50%,
+    var(--surface-container-low) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeletonText {
+  border-radius: 0.25rem;
+}
+
+.skeletonCard {
+  justify-content: flex-start;
+  padding: 1.25rem !important;
+}
+
+.error {
+  background: rgba(186, 26, 26, 0.05);
+  color: var(--error);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(186, 26, 26, 0.2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.retryBtn {
+  margin-left: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+  background: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: 4px;
+}
+
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(242, 244, 246, 0.5);
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* --- Bento Grid Layout --- */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.gridLoading {
+  opacity: 0.6;
+}
+
+.colSpan12 {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.colSpan8 {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.colSpan4 {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .colSpan8 {
+    grid-column: span 8;
+  }
+  .colSpan4 {
+    grid-column: span 4;
+  }
+}
+
+.bentoCard {
+  background-color: var(--surface-container-lowest);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-ambient);
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.autoHeightCard {
+  height: 100%;
+}
+
+.fixedHeightCard {
+  height: 400px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.headerIcon {
+  margin-right: 8px;
+  color: var(--primary);
+}
+
+/* --- Recharts Styles via global pseudo-class --- */
+:global(.recharts-default-tooltip) {
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.1) !important;
+  background-color: var(--surface-container-lowest) !important;
+}
+
+:global(.recharts-legend-wrapper) {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+/* --- Lists & Badges --- */
+.teamList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.teamMemberRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--surface-container-low);
+  border-radius: 0.5rem;
+  margin-bottom: 8px;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+}
+
+.memberInfo {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 600;
+}
+
+.deptBadge {
+  background: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+}
+
+.badgePrimary {
+  background: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+}
+
+.badgeError {
+  background: rgba(186, 26, 26, 0.1);
+  color: var(--error);
+}
+
+.badgeTertiary {
+  background: rgba(146, 70, 40, 0.1);
+  color: var(--tertiary);
+}
+
+/* --- Responsive Layout adjustments --- */
+@media (max-width: 768px) {
+  .kpiWrapper {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,642 @@
+/* MedicineMaster.module.css */
+
+.pageContainer {
+  padding: 24px 32px; 
+  background-color: #f7f9fa;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a202c;
+}
+
+/* Header Section */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.breadcrumbs {
+  font-size: 0.7rem; 
+  font-weight: 600;
+  color: #718096;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.breadcrumbActive {
+  color: #0b7b8a;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem; 
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.85rem; 
+  color: #64748b;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0b7b8a;
+  color: white;
+  padding: 8px 16px; 
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem; 
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+  background-color: #08606c;
+}
+
+/* Main Card Layout */
+.card {
+  background-color: white;
+  border-radius: 12px; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; 
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1rem; 
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.searchWrapper {
+  position: relative;
+  width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #0b7b8a;
+  background-color: white;
+  box-shadow: 0 0 0 2px rgba(11, 123, 138, 0.1);
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 12px 24px; 
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table td {
+  padding: 12px 24px; 
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tableRow {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover {
+  background-color: #f8fafc;
+}
+
+.tableRow:last-child td {
+  border-bottom: none;
+}
+
+/* Item Info Column */
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; 
+  height: 32px;
+  background-color: #f0f7f8;
+  color: #0b7b8a;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.nameText {
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 0.85rem; 
+}
+
+.descText {
+  margin: 2px 0 0 0;
+  font-size: 0.75rem; 
+  color: #64748b;
+  font-style: italic;
+}
+
+.normalText {
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+/* Pills */
+.typePill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.65rem; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #e0f2f1;
+  color: #00796b;
+}
+
+/* Action Buttons */
+.actionGroup {
+  display: flex;
+  gap: 8px; 
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: #94a3b8;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn:hover {
+  color: #0b7b8a;
+  background-color: #f0f7f8;
+}
+
+.iconBtn.delete:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; 
+  border-top: 1px solid #f1f5f9;
+}
+
+.pageInfo {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.pageControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageNumber, .pageArrow {
+  background: none;
+  border: none;
+  width: 24px; 
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageNumber:hover:not(.active), .pageArrow:hover:not(:disabled) {
+  background-color: #f1f5f9;
+}
+
+.pageArrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageNumber.active {
+  background-color: #0b7b8a;
+  color: white;
+  font-weight: 600;
+}
+
+.emptyState {
+  padding: 40px 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ==================================================
+   FORM MODAL STYLES 
+================================================== */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.modalHeader div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+}
+
+.closeBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: #0f172a;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: #0b7b8a;
+  box-shadow: 0 0 0 2px rgba(11, 123, 138, 0.1);
+}
+
+.typeSelector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.typeBtn {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.typeBtn:hover {
+  background: #f8fafc;
+}
+
+.typeActive {
+  background: #0b7b8a;
+  color: white;
+  border-color: #0b7b8a;
+}
+
+.typeActive:hover {
+  background: #08606c;
+}
+
+.modalFooter {
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background: #f8fafc;
+  border-radius: 0 0 12px 12px;
+}
+
+.modalCloseButton {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.2s;
+}
+
+.modalCloseButton:hover {
+  background: #f1f5f9;
+}
+
+.modalSubmitButton {
+  background: #0b7b8a;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modalSubmitButton:hover:not(:disabled) {
+  background: #08606c;
+}
+
+.modalSubmitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==================================================
+   LOADER & SPINNER STYLES 
+================================================== */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  color: #64748b;
+  gap: 16px;
+  background-color: white;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #0b7b8a;
+}
+
+.btnSpinner {
+  animation: spin 1s linear infinite;
+  color: white;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================================================
+   DELETE MODAL STYLES 
+================================================== */
+.deleteModalContent {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.deleteModalIcon {
+  background-color: #fee2e2;
+  padding: 16px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteModalTitle {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.deleteModalText {
+  margin: 0 0 28px 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.deleteModalActions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.deleteCancelBtn,
+.deleteConfirmBtn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.deleteCancelBtn {
+  background: white;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+.deleteCancelBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.deleteConfirmBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.deleteConfirmBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.deleteConfirmBtn:disabled,
+.deleteCancelBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==================================================
+   NEW STYLES FOR TOGGLE AND TIMING PILL 
+================================================== */
+.toggleGroup {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.toggleBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleBtn:hover:not(.toggleActive) {
+  background: #e2e8f0;
+}
+
+.toggleActive {
+  background: white;
+  color: #0b7b8a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.timingPill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #fff7ed;
+  color: #c2410c;
+}

@@ -1,0 +1,246 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.contentWrapper {
+  padding: 10px 20px; /* Reduced padding for a tighter layout */
+}
+.toggleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.toggleButton {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease;
+}
+
+.toggleOn {
+  background-color: #007b8e;
+}
+
+.toggleOff {
+  background-color: #cbd5e1;
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+.toggleOn .toggleThumb {
+  transform: translateX(20px);
+}
+
+.toggleLabel {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.header {
+  margin-bottom: 20px; /* Reduced from 30px */
+}
+
+.headerTitle {
+  font-size: 20px; /* Reduced from 24px */
+  font-weight: bold;
+  color: #007b8e;
+}
+
+.subtitle {
+  font-size: 13px; /* Reduced from 16px */
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.content {
+  padding: 10px 0;
+}
+
+.section {
+  margin-bottom: 24px; /* Reduced from 30px */
+  flex: 1;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  border-left: 3px solid #007b8e; /* Slightly thinner border */
+  padding-left: 10px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px; /* Reduced from 20px */
+  font-weight: bold;
+  color: #007b8e;
+  margin-left: 8px;
+}
+
+.inputSection {
+  margin-bottom: 16px;
+}
+
+/* --- SMALLER FORM FIELDS AND FONTS --- */
+.label {
+  font-size: 13px; /* Reduced from 16px */
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding (was 12px all around) */
+  border-radius: 8px; /* Slightly smaller radius */
+  border: 1px solid #007b8e;
+  font-size: 14px; /* Smaller font inside the input */
+  color: #2c3e50;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtler shadow */
+}
+
+.descriptionInput {
+  resize: vertical;
+  min-height: 80px; /* Reduced from 100px */
+  width: 100%;
+}
+
+/* Ensure the textarea keeps its border in this specific layout */
+textarea.input.descriptionInput {
+  border: 1px solid #007b8e;
+}
+
+.input:focus,
+.descriptionInput:focus {
+  outline: none;
+  border-color: #005f6b;
+}
+
+.row {
+  display: flex;
+  gap: 16px; /* Reduced gap between columns */
+  margin-bottom: 16px; /* Reduced from 20px */
+}
+
+.halfInput {
+  flex: 1;
+}
+
+.buttonContainer {
+  margin: 20px 0;
+}
+
+.saveButton {
+  background-color: #007b8e;
+  padding: 12px; /* Reduced from 16px */
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px; /* Reduced from 16px */
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 123, 142, 0.2);
+}
+
+.disabledButton {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* --- TOAST NOTIFICATIONS --- */
+.toastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px; /* Smaller toast font */
+}
+
+.toastSuccess {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.toastError {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+/* --- ASSIGNED LOCATIONS LIST --- */
+.assignedLocationsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  min-height: 32px;
+}
+
+.noLocationsText {
+  font-size: 13px;
+  color: #94a3b8;
+  font-style: italic;
+  margin: 0;
+  padding-top: 6px;
+}
+
+.locationTag {
+  display: flex;
+  align-items: center;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.locationTagName {
+  font-size: 13px;
+  color: #0369a1;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.locationTagRemove {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0284c7;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.locationTagRemove:hover {
+  background-color: #e0f2fe;
+  color: #dc2626;
+}

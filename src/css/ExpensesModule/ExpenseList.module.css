@@ -1,0 +1,380 @@
+:root {
+  --primary-color: #007b8e;
+  --primary-dark: #005b6a;
+  --text-dark: #1a1a1a;
+  --text-light: #4a4a4a;
+  --background: #f9fafb;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --hover-bg: #f1f5f9;
+  --error: #e63946;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, var(--primary-color), #00a8bd);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Filters */
+.filterControls {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.filterSelect, .filterInput {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.filterSelect:focus, .filterInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.clearFilters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--error);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 38px;
+}
+
+.clearFilters:hover {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+/* Table Base Elements */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--hover-bg);
+  white-space: nowrap;
+}
+
+.tr {
+  transition: background-color 0.2s ease;
+}
+
+.tr:hover {
+  background-color: var(--hover-bg);
+}
+
+.td {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusPaid { background: #d1fae5; color: #065f46; }
+.statusPending { background: #fef3c7; color: #92400e; }
+.statusCancelled { background: #fee2e2; color: #991b1b; }
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 0.35rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:hover {
+  color: var(--primary-color);
+  background: var(--hover-bg);
+}
+
+/* Loaders and Empty States */
+.loaderContainer, .emptyState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--hover-bg);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.emptyText {
+  margin-top: 1rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* =========================================
+   NEW GRID & LAYOUT CLASSES
+   ========================================= */
+
+/* Main layout grid to force equal heights */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Table takes 2/3 width, Chart takes 1/3 */
+  gap: 1.5rem;
+  align-items: stretch; /* Forces both columns to have the exact same height */
+}
+
+/* Table Wrapper configured as a Flex container */
+.tableWrapper {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the footer to the bottom */
+  min-height: 100%; /* Fill the grid height */
+}
+
+.tableScroll {
+  overflow-x: auto;
+  flex-grow: 1; /* Takes up available space, forcing footer to bottom */
+}
+
+/* Table Footer & Pagination Styles */
+.tableFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--white);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.resultsCount {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.paginationControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pageBtn {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--hover-bg);
+}
+
+
+/* =========================================
+   CHART STYLES
+   ========================================= */
+
+.chartWrapper {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure it stretches to match table height */
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+/* Custom Vertical Legend */
+.customLegend {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  width: 100%;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.legendText {
+  color: var(--text-light);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr; /* Stack table and chart on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tableFooter {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

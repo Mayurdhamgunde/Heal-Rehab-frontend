@@ -1,0 +1,205 @@
+* {
+  font-family: 'Roboto', 'Arial', sans-serif; 
+
+}
+
+.pageContainer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.headerBanner {
+  width: 100%;
+  text-align: center;
+  padding: 60px;
+  background: linear-gradient(135deg, #007B8E 0%, #00afc7 100%);
+  color: white;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 123, 142, 0.2);
+  position: relative;
+}
+
+.headerBanner h1 {
+  font-family: 'Roboto', 'Arial', sans-serif; 
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  color:white;
+}
+
+.headerBanner p {
+  font-size: 22px;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  font-family: 'Roboto', 'Arial', sans-serif; 
+}
+
+/* Add this if you want the horizontal divider from the About page */
+.headerDivider {
+  width: 150px;
+  height: 3px;
+  background-color: #124949;
+  margin: 30px auto 10px;
+  opacity: 0.7;
+  border-radius: 2px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .headerBanner {
+    padding: 70px 20px 30px;
+  }
+  
+  .headerBanner h1 {
+    font-size: 32px;
+  }
+  
+  .headerBanner p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerBanner {
+    padding: 60px 15px 25px;
+  }
+  
+  .headerBanner h1 {
+    font-size: 28px;
+  }
+  
+  .headerBanner p {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.introBox {
+  border-left: 4px solid #007B8E;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  color: black;
+  font-family: 'Roboto', 'Arial', sans-serif; 
+
+}
+
+.section {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #007B8E;
+  font-family: 'Roboto', 'Arial', sans-serif; 
+
+  font-weight: 500;
+}
+
+.sectionContent {
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  color: black;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sectionContent p {
+  margin-top: 0;
+  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sectionContent ul {
+  padding-left: 20px;
+}
+
+.sectionContent li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.plus, .minus {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  
+}
+
+.plus::before, .plus::after, .minus::before {
+  content: '';
+  position: absolute;
+  background-color: #007B8E;
+}
+
+.plus::before, .minus::before {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.plus::after {
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+a {
+  color: #007B8E;
+  text-decoration: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.footer a {
+  color: #007b8e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

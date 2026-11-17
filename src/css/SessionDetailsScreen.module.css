@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary: #007b8e;
+  --primary-hover: #006878;
+  --surface-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+.pageContainer {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface-bg);
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header Panel - Mimicking the Hero Panel from Plan Details */
+.headerPanel {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.backIcon {
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.backIcon:hover {
+  color: var(--primary);
+}
+
+.pageTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.sessionTypeBadge {
+  display: inline-block;
+  background: #e0f2f5;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.sessionNumberBadge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dateBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Action Buttons (Matches outlineBtn) */
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+.actionBtn:hover {
+  background: var(--surface-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.actionBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Status Badges */
+.statusBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: #e0f2f5;
+  color: var(--primary);
+}
+
+/* Grid Layout */
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.columnFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Cards (Matches modernCard) */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Info Elements */
+.rowGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.infoGroup:last-child {
+  margin-bottom: 0;
+}
+
+.infoLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoValue {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.detailBox {
+  padding: 0.75rem 1rem;
+  background: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 80px;
+}
+
+.emptyValue {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Badges / Chips */
+.readOnlyPill {
+  display: inline-block;
+  background: #e0f2f5;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  border: 1px solid #bae6fd;
+}
+
+.emojiDisplay {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.emojiIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.emojiText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.symptomChip {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Vitals Styling */
+.vitalsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.vitalItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vitalValueBox {
+  padding: 0.5rem;
+  background: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+}
+
+/* Prescription List */
+.medList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.medCard {
+  display: flex;
+  align-items: flex-start;
+  background: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  gap: 12px;
+}
+
+.medBadge {
+  width: 24px;
+  height: 24px;
+  background: #e0f2f5;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.medName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.medMeta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.medInstructionBox {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  padding: 6px 8px;
+  background: #f59e0b1a;
+  border-radius: 4px;
+  border-left: 2px solid #f59e0b;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.instructionLabel {
+  font-size: 0.65rem;
+  color: var(--primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Loader */
+.loadingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--surface-bg);
+  gap: 16px;
+  font-family: "Inter", sans-serif;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 1rem;
+  }
+  .rowGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .headerPanel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+}

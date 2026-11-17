@@ -1,0 +1,933 @@
+/* ── Root Layout ── */
+.pageRoot {
+  display: flex;
+  min-height: 100vh;
+  background: #f0f4f5;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: linear-gradient(180deg, #005a66 0%, #003d47 100%);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebarInner {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  height: 100%;
+}
+
+.sidebarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.sidebarLogo {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebarLogo svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  color: #7dd9e4;
+}
+
+.sidebarTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sidebarSubtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Step Nav ── */
+.stepNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.stepBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.625rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.stepBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stepActive {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.stepDone .stepCircle {
+  background: #007b8e;
+  border-color: #007b8e;
+  color: white;
+}
+
+.stepCircle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.stepActive .stepCircle {
+  border-color: #7dd9e4;
+  color: #7dd9e4;
+  background: rgba(125, 217, 228, 0.1);
+}
+
+.stepCircle svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.stepLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: color 0.2s;
+}
+
+.stepActive .stepLabel {
+  color: #ffffff;
+}
+
+.stepDone .stepLabel {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Sidebar Patient Card ── */
+.sidebarPatientCard {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.875rem;
+  padding: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebarPatientAvatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #007b8e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sidebarPatientName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarPatientId {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.15rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* ── Main Content ── */
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.formBody {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top Bar ── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.backBtn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.backBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.formBadge {
+  background: #e0f7fa;
+  color: #007b8e;
+  padding: 0.375rem 0.875rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid #b2ebf2;
+}
+
+/* ── Alerts ── */
+.alertError,
+.alertSuccess {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.alertError {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.alertSuccess {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.alertError svg,
+.alertSuccess svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── Section Panels ── */
+.section {
+  background: white;
+  border-radius: 1.25rem;
+  border: 1px solid #e8eef2;
+  padding: 2.5rem;
+  box-shadow: 0 2px 12px rgba(0, 123, 142, 0.06);
+  flex: 1;
+}
+
+.sectionVisible {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+.sectionHidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.sectionIndex {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #e0f7fa;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-family: 'Georgia', serif;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+}
+
+.sectionTitle {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.sectionDesc {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Form Fields ── */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldGroupFull {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.fieldLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.req {
+  color: #ef4444;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.625rem;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #007b8e;
+  box-shadow: 0 0 0 3px rgba(0, 123, 142, 0.1);
+}
+
+.readonlyField {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.readonlyIcon {
+  position: absolute;
+  left: 0.875rem;
+  color: #94a3b8;
+  display: flex;
+  pointer-events: none;
+}
+
+.readonlyIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.inputReadonly {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  border: 1.5px solid #f1f5f9;
+  border-radius: 0.625rem;
+  font-size: 0.95rem;
+  color: #64748b;
+  background: #f8fafc;
+  cursor: not-allowed;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+/* ── Upload Zone ── */
+.uploadZone {
+  margin-top: 1.5rem;
+}
+
+.uploadZoneInner {
+  position: relative;
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #f8fafc;
+}
+
+.uploadZoneInner:hover {
+  border-color: #007b8e;
+  background: #f0fdfe;
+}
+
+.uploadIcon {
+  width: 3rem;
+  height: 3rem;
+  background: #e0f7fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.875rem;
+}
+
+.uploadIcon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  color: #007b8e;
+}
+
+.uploadLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0 0 0.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.uploadSub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.fileInputHidden {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.previewWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.previewImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  border: 2px solid #007b8e;
+}
+
+.removePhoto {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.75rem auto 0;
+  background: none;
+  border: 1px solid #fecaca;
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.15s;
+}
+
+.removePhoto svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.removePhoto:hover {
+  background: #fef2f2;
+}
+
+/* ── Summary Grid ── */
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid #e8eef2;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.summaryItem {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-right: 1px solid #e8eef2;
+  border-bottom: 1px solid #e8eef2;
+}
+
+.summaryItem:nth-child(even) {
+  border-right: none;
+}
+
+.summaryItem:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.summaryKey {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.summaryVal {
+  font-size: 0.9rem;
+  color: #1e293b;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Declaration Box ── */
+.declarationBox {
+  background: linear-gradient(135deg, #f0fdfe 0%, #e6f8fa 100%);
+  border-left: 4px solid #007b8e;
+  border-radius: 0 0.875rem 0.875rem 0;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.declarationQuote {
+  font-size: 4rem;
+  line-height: 1;
+  color: #007b8e;
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.25rem;
+}
+
+.declarationText {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #0f4c52;
+  margin: 0;
+  font-style: italic;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  padding-top: 0.5rem;
+}
+
+/* ── Toggle Agree ── */
+.agreeToggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.toggleTrack {
+  position: relative;
+  width: 3rem;
+  height: 1.625rem;
+  background: #e2e8f0;
+  border-radius: 2rem;
+  flex-shrink: 0;
+  transition: background 0.25s;
+  margin-top: 0.05rem;
+}
+
+.toggleOn {
+  background: #007b8e;
+}
+
+.toggleInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleThumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: transform 0.25s;
+  display: block;
+}
+
+.toggleOn .toggleThumb {
+  transform: translateX(1.375rem);
+}
+
+.agreeText {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.55;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+}
+
+/* ── Section Footer (Nav Buttons) ── */
+.sectionFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #f1f5f9;
+  gap: 1rem;
+}
+
+.prevBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.375rem;
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.625rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.prevBtn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.prevBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.nextBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 123, 142, 0.25);
+  margin-left: auto;
+}
+
+.nextBtn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.nextBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 123, 142, 0.35);
+}
+
+/* ── Submit Button ── */
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 2.5rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.01em;
+  margin-left: auto;
+}
+
+.submitButton svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 123, 142, 0.4);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Profile Incomplete Overlay ── */
+.incompleteOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 58, 67, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.incompleteCard {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  max-width: 26rem;
+  width: 100%;
+}
+
+.incompleteIconRing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background: #fef2f2;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 4px solid #fee2e2;
+}
+
+.incompleteIconRing svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #ef4444;
+}
+
+.incompleteTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.75rem;
+  font-family: 'Georgia', serif;
+}
+
+/* ADD THESE TO THE END OF YOUR EXISTING CSS FILE */
+
+/* Wrapper for grouping multiple image uploads side-by-side */
+.photoUploadsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem; /* Space between Patient and Witness upload */
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+}
+
+/* Clearer separation between form sections */
+.sectionDivider {
+  grid-column: 1 / -1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #007b8e;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Existing rules update: Just ensure imageUploadContainer has no forced bottom margins that break the flex row */
+.imageUploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ensure responsiveness for the uploads block */
+@media (max-width: 480px) {
+  .photoUploadsWrapper {
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sectionDivider {
+    font-size: 1rem;
+  }
+}
+
+.incompleteText {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 2.5rem;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.incompleteButton {
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 123, 142, 0.3);
+}
+
+.incompleteButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 123, 142, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .mainContent {
+    padding: 1.25rem;
+  }
+  .section {
+    padding: 1.5rem;
+  }
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+  .summaryItem {
+    border-right: none;
+  }
+  .summaryItem:nth-last-child(-n+2) {
+    border-bottom: 1px solid #e8eef2;
+  }
+  .summaryItem:last-child {
+    border-bottom: none;
+  }
+}

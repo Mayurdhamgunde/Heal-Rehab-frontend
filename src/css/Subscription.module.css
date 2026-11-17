@@ -1,0 +1,504 @@
+.container {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #007b8e;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Billing Toggle */
+.billingToggleContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.billingToggle {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 50px;
+  padding: 0.25rem;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 500px;
+}
+
+.billingOption {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.billingOption.active {
+  color: white;
+}
+
+/* Add this sliding background element */
+.billingToggle::before {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  height: calc(100% - 0.5rem);
+  width: calc(50% - 0.5rem);
+  background-color: #007b8e;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+/* Add these rules to move the background when annual billing is selected */
+.billingToggle:has(.billingOption:nth-child(2).active)::before {
+  left: calc(50% + 0.25rem);
+}
+
+/* For browsers that don't support :has, provide a fallback */
+.billingOption:nth-child(2).active ~ .billingToggle::before {
+  left: calc(50% + 0.25rem);
+}
+
+.discountBadge {
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+
+/* Pricing Cards */
+.pricingCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem auto 4rem;
+  padding: 0 5%;
+  max-width: 1200px;
+}
+
+.pricingCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.pricingCard:hover {
+  transform: translateY(-5px);
+}
+
+.pricingCard.selected {
+  border: 2px solid #007b8e;
+  box-shadow: 0 8px 25px rgba(0, 123, 142, 0.15);
+}
+
+
+
+.popularBadge {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background-color: #007b8e;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.pricingHeader {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.planIconContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: #007b8e;
+  font-size: 2rem;
+}
+
+.planIcon {
+  font-size: 2rem;
+}
+
+.planName {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.planPrice {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007b8e;
+  margin: 0.8rem 0;
+}
+
+.priceAmount {
+  font-size: 1.8rem;
+}
+
+.pricePeriod {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777;
+}
+
+.subscribeButton {
+  padding: 0.8rem;
+  border: 2px solid #007b8e;
+  border-radius: 8px;
+  background-color: white;
+  color: #007b8e;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.subscribeButton:hover {
+  background-color: #007b8e;
+  color: white;
+}
+
+
+
+.subscribeButton.popularButton:hover {
+  background-color: #004750;
+}
+
+.subscribeButton.selected_button {
+  background-color: #3b9e44;
+  color: white;
+  border-color: #3b9e44;
+}
+
+/* Features */
+.featuresContainer {
+  margin-top: 1.2rem;
+}
+
+.featuresTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.featureIcon {
+  margin-right: 0.6rem;
+}
+
+.featureIcon.included {
+  color: #007b8e;
+}
+
+.featureIcon.excluded {
+  color: #ccc;
+}
+
+.featureName {
+  font-size: 0.85rem;
+}
+
+.featureName.included {
+  color: #333;
+}
+
+.featureName.excluded {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* Summary Container */
+.summary_container {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  border: 1px solid #eee;
+}
+
+.summary_title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #007b8e;
+  margin-bottom: 1.5rem;
+}
+
+.summary_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.amount_row {
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-bottom: none;
+}
+
+.amount {
+  color: #007b8e;
+}
+
+.subscribe_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  background-color: #007b8e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe_button:hover {
+  background-color: #006a7a;
+}
+
+.subscribe_button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button_icon {
+  margin-right: 0.5rem;
+}
+
+.loading_container {
+  display: flex;
+  align-items: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.spinner_circle {
+  fill: none;
+  stroke-opacity: 0.3;
+}
+
+.spinner_path {
+  opacity: 0.75;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.redirect_text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 1rem;
+}
+
+/* Error & Success messages */
+.error_container, .success_container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease;
+  z-index: 100;
+}
+
+.error_container {
+  background-color: #fff0f0;
+  color: #e53935;
+  border-left: 4px solid #e53935;
+}
+
+.success_container {
+  background-color: #f0fff0;
+  color: #43a047;
+  border-left: 4px solid #43a047;
+}
+
+.alert_icon, .success_icon {
+  margin-right: 0.5rem;
+}
+
+.dismiss_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 0.25rem;
+  color: #777;
+}
+
+.close_icon:hover {
+  color: #333;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* FAQ Section */
+.faqSection {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.faqTitle {
+  text-align: center;
+  font-size: 2rem;
+  color: #007b8e;
+  margin-bottom: 2rem;
+}
+
+.faqItems {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.faqItem {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.faqQuestion {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #007b8e;
+  margin-bottom: 0.5rem;
+}
+
+.faqAnswer {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .pricingCards {
+    grid-template-columns: 1fr;
+  }
+  
+  .billingToggle {
+    min-width: 90%;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .billingToggle {
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .billingOption {
+    margin: 0.25rem 0;
+    width: 100%;
+  }
+  
+  /* Hide the sliding background on mobile */
+  .billingToggle::before {
+    display: none;
+  }
+  
+  /* Apply background directly to the active option on mobile */
+  .billingOption.active {
+    background-color: #007b8e;
+    border-radius: 5px;
+  }
+}

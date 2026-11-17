@@ -1,0 +1,995 @@
+/* Keep all existing styles */
+:root {
+  --primary-color: #007B8E;
+  --secondary-color: #00a8cc;
+}
+
+.brandHeaderWrapper {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  background: linear-gradient(135deg, #007B8E 0%, #00a8cc 50%, #007B8E 100%);
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 160px;
+  margin-left: calc(-50vw + 50%);
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: -3rem; 
+}
+
+.brandHeader {
+  text-align: center;
+  margin-bottom: -80px;
+  margin-top: -120px;
+}
+
+.brandWelcome {
+  font-size: 25px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: -55px;
+  margin-bottom: -5px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-out 0.2s forwards;
+}
+
+.brandNameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -20px;
+}
+
+.brandNamePrimary {
+  font-size: 50px;
+  font-weight: 500;
+  font-family: 'Arial', serif;
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInScale 1s ease-out 0.5s forwards;
+  transform-origin: center;
+}
+
+.brandTagline {
+  margin-top: 22px;
+}
+
+.brandTaglinePrimary {
+  font-size: 23px;
+  font-weight: 400;
+  color: #FFFFFF;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+/* New animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Add gradient animation to the brand name */
+.brandNamePrimary {
+  font-size: 50px;
+  font-weight: 550;
+  font-family: 'Arial', serif;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInScale 1s ease-out 0.5s forwards, gradientShift 8s ease infinite 1.5s;
+  background-size: 300% 300%;
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform-origin: center;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .brandHeader {
+    padding: 6rem 1rem;
+  }
+}
+
+/* The wave SVG */
+.wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  background-color: transparent ;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 95px;
+}
+
+
+.logoColor {
+  color: var(--primary-color);
+}
+
+/* Container */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 3rem 2rem;
+  }
+  .featureCard {
+    padding: 2rem;
+    padding-top: 90px;
+  }
+  
+  .featureImageContainer {
+    top: -80px;
+    height: 160px;
+  }
+  
+  .featureImage {
+    max-width: 160px;
+    max-height: 160px;
+  }
+  
+  .featureTitle {
+    font-size: 24px;
+  }
+  
+  .featureDescription {
+    font-size: 18px;
+    padding: 0 1rem;
+  }
+}
+
+/* Features Wrapper */
+.featuresWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem; 
+  margin: 3.5rem 0 2rem; /* Reduced top margin */
+  background-color: transparent;
+  padding: 2rem 1rem;
+  max-width: 100%;
+  overflow-x: hidden; 
+}
+
+@media (min-width: 768px) {
+  .featuresWrapper {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 300px; 
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: visible;
+  padding-top: 80px; 
+  padding-bottom: 1.5rem;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+.featureImageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -70px; 
+  left: 0;
+  right: 0;
+  height: 140px; 
+}
+
+.featureImage {
+  width: auto;
+  height: auto;
+  max-width: 130px; 
+  max-height: 130px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.featureContent {
+  text-align: center;
+  width: 100%;
+  margin-top: 10px; 
+}
+
+.featureTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.featureDescription {
+  font-size: 16px; 
+  color: #666;
+  line-height: 1.5;
+  padding: 0 0.5rem;
+}
+
+.featuresSection {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 4rem 0;
+}
+
+.featuresTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.featureHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.iconContainer {
+  margin-right: 0.75rem;
+}
+
+.icon {
+  color: #007b8e;
+}
+
+/* About Section */
+.aboutSection {
+  display: flex;
+  flex-direction: column;  
+  background: transparent;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 2rem 0; /* Reduced margin */
+}
+
+.aboutImageSide {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.aboutContentSide {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.aboutTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.aboutDescription {
+  font-size: 1.25rem;
+  color: #4B5563;
+  text-align: justify;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.learn_more_btn {
+  display: inline-block;
+  background-color: #007b8e; 
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn_more_btn :hover{
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .aboutSection {
+    flex-direction: row; 
+  }
+
+  .aboutImageSide {
+    width: 50%;
+  }
+
+  .aboutContentSide {
+    width: 50%;
+  }
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  margin: 4rem 0;
+}
+
+.testimonialsTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.testimonialCard {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonialText {
+  color: #4B5563;
+  font-style: italic;
+}
+
+.testimonialAuthor {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #4B5563;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CTA Section */
+.ctaSection {
+  display: flex;
+  flex-direction: column;  
+  background: linear-gradient(135deg, #007B8E 0%, #00afc7 100%);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 2rem 0; /* Simplified and reduced margin */
+}
+
+.ctaLeftSide {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ctaRightSide {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.ctaTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.ctaDescription {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.buttonContainer {
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 8px 10px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background-color: #F3F4F6;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.arrowIcon {
+  margin-left: 10px;
+  margin-top: 3px;
+  transition: transform 0.3s ease;
+}
+
+.arrowIconHovered {
+  transform: translateX(4px);
+}
+
+@media (min-width: 768px) {
+  .ctaSection {
+    flex-direction: row; 
+  }
+
+  .ctaLeftSide {
+    width: 68%;
+  }
+
+  .ctaRightSide {
+    width: 32%;
+  }
+}
+
+/* Animations */
+.animateFadeIn {
+  animation: fadeIn 1s ease-in;
+}
+
+.animateFadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animateColorChange {
+  animation: colorChange 5s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #007b8e;
+  }
+  50% {
+    color: #00a8cc;
+  }
+  100% {
+    color: #007b8e;
+  }
+}
+
+.EnrollSection {
+  display: flex;
+  flex-direction: column;  
+  background: linear-gradient(135deg, #007B8E 0%, #00afc7 100%);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 4rem 0;
+  margin-top: 70px;
+}
+
+.enrollLeftSide {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.enrollRightSide {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.enrollTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.enrollDescription {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+@media (min-width: 768px) {
+  .EnrollSection {
+    flex-direction: row; 
+  }
+
+  .enrollLeftSide {
+    width: 68%;
+  }
+
+  .enrollRightSide {
+    width: 32%;
+  }
+}
+
+.enrollButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 8px 10px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.enrollButton:hover {
+  background-color: #F3F4F6;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+@media (width: 360px) {
+  .brandWelcome {
+    margin-top: 30px;
+    margin-bottom: -5px;
+    letter-spacing: 1px;
+  }
+  .brandHeaderWrapper {
+    height: 305px;
+  }
+  .brandTaglinePrimary {
+    padding: 1px;
+    text-align: center;
+  }
+  .wave svg{
+    height: 70px;
+  }
+  .featuresWrapper {
+    gap: 6rem;
+    padding: 3.8rem 0.5rem;
+  }
+  
+  .featureCard {
+    max-width: 260px;
+    padding: 1.25rem;
+    padding-top: 40px;
+  }
+  
+  .featureImageContainer {
+    top: -60px;
+    height: 120px;
+  }
+  
+  .featureImage {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .featureTitle {
+    font-size: 18px;
+  }
+  
+  .featureDescription {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
+  .featuresWrapper {
+    gap: 6.5rem;
+  }
+  
+  .featureCard {
+    max-width: 280px;
+  }
+  
+  .featureImage {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 767px){
+  .brandWelcome {
+    margin-top: 30px;
+    margin-bottom: -5px;
+    letter-spacing: 1px;
+  }
+  .brandHeaderWrapper {
+    height: 265px;
+  }
+  .brandTaglinePrimary {
+    padding: 1px;
+    text-align: center;
+  }
+  .wave svg{
+    height: 70px;
+  } 
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .featuresWrapper {
+    padding: 3rem 1rem; /* Reduced padding */
+  }
+  
+  .featureCard {
+    max-width: 320px;
+    padding-top: 55px;
+  }
+  
+  .featureImageContainer {
+    height: 160px;
+    top: -80px;
+  }
+  
+  .featureImage {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  
+  .featureTitle {
+    font-size: 22px;
+  }
+  
+  .featureDescription {
+    font-size: 18px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) {
+  .featuresWrapper {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 3rem 1rem 1rem; /* Reduced padding */
+  }
+  
+  .featureCard {
+    width: 30%;
+    min-width: 220px;
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .featuresWrapper {
+    margin-top: -11px;
+    padding: 5rem 2rem 1rem; /* Reduced padding */
+    gap: 3rem;
+  }
+  
+  .featureCard {
+    max-width: 380px;
+  }
+  
+  .featureImageContainer {
+    top: -75px;
+    height: 180px;
+  }
+  
+  .featureImage {
+    max-width: 180px;
+    max-height: 180px;
+  }
+}
+
+/* ==========================================================================
+   Addiction Management Section - Aesthetic Light Teal UI
+   ========================================================================== */
+
+.addictionSection {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  margin: 1rem 0 2rem 0; /* Reduced margin and centered */
+  max-width: 100%;
+}
+
+/* Scroll Animation classes */
+.addictionHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.isVisible .addictionHeader {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.addictionTitle {
+  font-size: 1.55rem; 
+  font-weight: 800;
+  color: #0d4a55; 
+}
+
+.addictionSubtitle {
+  font-size: 1rem;
+  color: #5a7c82; 
+}
+
+.addictionGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .addictionGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* AESTHETIC CARDS: Light Teal Gradient & Soft Shadows */
+.addictionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, #ffffff 0%, #eefafb 100%);
+  border: 1px solid rgba(0, 123, 142, 0.05); 
+  border-radius: 20px; 
+  box-shadow: 0 10px 30px -5px rgba(0, 123, 142, 0.08), 
+              0 4px 6px -2px rgba(0, 123, 142, 0.04); 
+  padding: 2.5rem 1.5rem;
+  width: 100%;
+  max-width: 320px; 
+  margin: 0 auto;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Decorative top gradient line on hover */
+.addictionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #007B8E, #48c9d4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Scroll Trigger Animations with Stagger */
+.isVisible .addictionCard {
+  animation: slideUpFade 0.6s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.isVisible .addictionCard:nth-child(1) { animation-delay: 0.1s; }
+.isVisible .addictionCard:nth-child(2) { animation-delay: 0.25s; }
+.isVisible .addictionCard:nth-child(3) { animation-delay: 0.4s; }
+.isVisible .addictionCard:nth-child(4) { animation-delay: 0.55s; }
+.isVisible .addictionCard:nth-child(5) { animation-delay: 0.7s; }
+.isVisible .addictionCard:nth-child(6) { animation-delay: 0.85s; }
+
+/* HOVER EFFECT: Float up and increase shadow */
+.addictionCard:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 123, 142, 0.15);
+  box-shadow: 0 20px 40px -10px rgba(0, 123, 142, 0.15), 
+              0 8px 15px -5px rgba(0, 123, 142, 0.08);
+}
+
+.addictionCard:hover::before {
+  opacity: 1;
+}
+
+/* Aesthetic Icon Wrappers */
+.addictionIconWrapper {
+  background: #e0f4f7; 
+  color: var(--primary-color);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%; 
+  border: 4px solid #ffffff; 
+  box-shadow: 0 4px 10px rgba(0, 123, 142, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+/* Icon hover effect: Fill, scale, and slight rotation */
+.addictionCard:hover .addictionIconWrapper {
+  background: var(--primary-color);
+  color: white;
+  border-color: #eefafb;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0, 123, 142, 0.25);
+}
+
+.addictionCardTitle {
+  font-size: 18px; 
+  font-weight: 700;
+  color: #1a4a52; 
+  margin-bottom: 0.75rem;
+}
+
+.addictionCardDesc {
+  font-size: 14px; 
+  color: #5a7c82; 
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .addictionTitle {
+    font-size: 1.5rem; 
+  }
+  
+  .addictionSubtitle {
+    font-size: 0.9rem;
+  }
+  
+  .addictionCardTitle {
+    font-size: 17px;
+  }
+  
+  .addictionCardDesc {
+    font-size: 13px;
+  }
+}

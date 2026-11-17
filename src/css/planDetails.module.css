@@ -1,0 +1,753 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary: #007b8e;
+  --primary-hover: #006878;
+  --surface-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+.container {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface-bg);
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- TOP HERO PANEL --- */
+.heroPanel {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.heroLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.patientAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: #e0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitials {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.patientHeaders {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.patientName {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.therapySubtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background: #e0f2f5;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.heroCenter {
+  flex: 1;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.progressValue {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.progressDates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.heroRight {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.primaryBtn {
+  background: var(--primary);
+  color: white;
+}
+.primaryBtn:hover {
+  background: var(--primary-hover);
+}
+
+.outlineBtn {
+  background: white;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+.outlineBtn:hover {
+  background: #f8fafc;
+}
+
+/* --- MAIN GRIDS & CARDS --- */
+.fullWidthRow {
+  width: 100%;
+}
+
+.threeColGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.modernCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  height: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+
+.headerTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  font-family: Manrope, sans-serif;
+}
+
+.headerIcon {
+  font-size: 0.9rem;
+}
+
+.itemCountBadge {
+  background: #f1f5f9;
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+
+.addSmallBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.addSmallBtn:hover {
+  background: #f1f5f9;
+  color: var(--primary);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cardBodyList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cardBodyList::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- MEDICAL INFO BOXES --- */
+.infoGridRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.infoBlock,
+.infoBlockFull {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoBlock label,
+.infoBlockFull label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.infoText {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* --- PRESCRIPTION BOXES --- */
+.prescriptionBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.medHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.medTitle {
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  font-size: 0.85rem;
+}
+
+.medQty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.medGeneric {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: -4px;
+}
+
+.medTagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.medTag {
+  background: white;
+  border: 1px solid var(--border-color);
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.medInstructionBox {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  padding: 6px 8px;
+  background: #f59e0b1a;
+  border-radius: 4px;
+  border-left: 2px solid #f59e0b;
+  /* Added Flex properties below to keep them in one line */
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.instructionLabel {
+  font-size: 0.65rem;
+  color: var(--primary);
+  font-weight: 700;
+  /* Prevent the label from wrapping */
+  white-space: nowrap;
+}
+
+.medInstructionBox p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  /* The instruction text can wrap if it's long, but the label will stay inline */
+}
+
+/* --- CAROUSEL STYLES (NEW) --- */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.carouselBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.carouselBtn:hover {
+  color: var(--primary);
+  background-color: #f1f5f9;
+}
+
+.carouselContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0; /* Prevents flex children from overflowing */
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.activeDot {
+  background-color: var(--primary);
+  transform: scale(1.3);
+}
+
+/* --- EMPTY STATES & OTHER BOXES --- */
+.emptyDashedBox {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.emptyIcon {
+  font-size: 1.5rem;
+  color: #cbd5e1;
+}
+
+/* --- SESSION BOX --- */
+.sessionBox {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+.sessionBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.sessionNum {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.sessionBoxClickable {
+  cursor: pointer;
+}
+.sessionBoxClickable:hover {
+  border-left-color: var(--primary);
+  background: #f0fafb;
+  box-shadow: 0 2px 8px rgba(0, 123, 142, 0.08);
+}
+.sessionBoxClickable:hover .sessionNum {
+  color: var(--primary);
+}
+.sessionBoxClickable:active {
+  background: #e0f2f5;
+}
+.sessionDate {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.sessionDoc {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.sessionImpression {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --- CLINICAL NOTES --- */
+.clinicalNoteBox {
+  background: #f8fafc;
+  border-left: 3px solid var(--primary);
+  padding: 10px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.noteTopRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.noteDoc {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.noteDate {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+.noteContent {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --- TABLE STYLES FOR PRESCRIPTION --- */
+.medTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.medTable th {
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.medTable td {
+  padding: 10px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  color: var(--text-main);
+  vertical-align: top;
+}
+
+.medTable tr:last-child td {
+  border-bottom: none;
+}
+
+.medStrength {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.headerActions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Modals */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+.modalVisible {
+  opacity: 1;
+  visibility: visible;
+}
+.modalContainer {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+.modalCloseButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.modalIcon {
+  color: var(--primary);
+}
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.inputGroup {
+  position: relative;
+}
+.noteInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  min-height: 100px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: inherit;
+}
+.noteInput:focus {
+  border-color: var(--primary);
+}
+.charCount {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.modalButtonContainer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.modalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.modalCancelButton {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+.modalSubmitButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 1024px) {
+  .threeColGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroPanel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .threeColGrid,
+  .infoGridRow {
+    grid-template-columns: 1fr;
+  }
+  .heroCenter {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+/* --- LOADING STATE --- */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #64748b;
+  gap: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #007b8e;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

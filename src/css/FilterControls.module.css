@@ -1,0 +1,132 @@
+:root {
+  --primary-color: #007b8e;
+  --primary-dark: #005b6a;
+  --text-dark: #1a1a1a;
+  --text-light: #4a4a4a;
+  --background: #f9fafb;
+  --white: #ffffff;
+  --error: #e63946;
+  --border-color: #e0e0e0;
+}
+
+/* Filter Controls - Extracted Section */
+.filterControls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #007b8e;
+}
+
+.filterSelect,
+.datePickerInput {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  min-width: 180px;
+}
+
+.filterSelect:focus,
+.datePickerInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.calendarContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.clearFilters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--error);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  height: 38px;
+}
+
+.clearFilters:hover {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+.clearFilters:hover .clearIcon {
+  stroke: var(--white);
+}
+
+.clearIcon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--error);
+}
+
+/* Responsive Design for Filters */
+@media (max-width: 968px) {
+  .filterControls {
+    padding: 1rem;
+  }
+
+  .filterGroup {
+    min-width: 150px;
+  }
+
+  .filterSelect,
+  .datePickerInput {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .filterControls {
+    padding: 0.75rem;
+  }
+
+  .filterGroup {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .filterSelect,
+  .datePickerInput {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .calendarContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+}

@@ -1,0 +1,476 @@
+/* FormBuilder.module.css */
+
+.pageContainer {
+  max-width: 1200px;
+  width: 95%;
+  margin: 2rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #0f172a;
+}
+
+/* --- Top Header Section --- */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.headerLeft h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.headerLeft p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  min-width: 300px;
+}
+
+.headerRight label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0b7b8a;
+  letter-spacing: 0.05em;
+}
+
+.globalNameInput {
+  border: none;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  color: #0f172a;
+}
+
+.globalNameInput::placeholder {
+  color: #94a3b8;
+}
+
+/* --- Question Card Styles --- */
+.questionCard {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #0b7b8a;
+  padding: 24px;
+  position: relative;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.headerInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.titleInput {
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+  width: 100%;
+  background: transparent;
+}
+
+.titleInput::placeholder { color: #94a3b8; }
+
+.descInput {
+  border: none;
+  font-size: 0.85rem;
+  color: #64748b;
+  outline: none;
+  width: 100%;
+  background: transparent;
+}
+
+.descInput::placeholder { color: #94a3b8; }
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Generic Action Button (Move Up/Down, Insert) */
+.actionBtn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover:not(:disabled) {
+  color: #0b7b8a;
+  background: #e0f2f1;
+  border-color: #b2dfdb;
+}
+
+.actionBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Delete Button Specific */
+.deleteBtn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 4px;
+}
+
+.deleteBtn:hover {
+  color: #ef4444;
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.typeSelectWrapper {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 175px; 
+}
+
+.typeSelect {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  color: inherit;
+  font-weight: inherit;
+  appearance: none;
+  padding-right: 16px;
+}
+
+/* --- Field Previews --- */
+.textPreview {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* --- Lists & Options --- */
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  gap: 12px;
+}
+
+.optionIcon {
+  color: #cbd5e1;
+}
+
+.optionInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.85rem;
+  outline: none;
+  color: #0f172a;
+}
+
+.removeOptionBtn {
+  background: none;
+  border: none;
+  color: #fca5a5;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.removeOptionBtn:hover { color: #ef4444; }
+
+.addBtnText {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #0b7b8a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+
+/* --- Advanced Table Layout --- */
+.tableLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 800px) {
+  .tableLayout { grid-template-columns: 1fr; }
+}
+
+.configSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.configBlock h4 {
+  margin: 0 0 12px 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.configItem {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 6px;
+  padding: 8px 12px;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.dragHandle {
+  color: #cbd5e1;
+  cursor: grab;
+}
+
+.typeBadge {
+  background: #e0f2f1;
+  color: #00796b;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.toggleInput {
+  accent-color: #0b7b8a;
+}
+
+/* Table Preview */
+.previewSection {
+  background: #ffffff;
+  border: 1px dashed #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0b7b8a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.previewTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+}
+
+.previewTable th {
+  background: #0b7b8a;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+}
+
+.previewTable td {
+  padding: 12px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: #ffffff;
+}
+
+.previewTable tr:last-child td { border-bottom: none; }
+
+.subRow td:first-child {
+  padding-left: 24px;
+  color: #64748b;
+}
+
+.previewInput {
+  background: #f8fafc;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  width: 100px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.previewSubtext {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+/* --- Bottom Actions --- */
+.addFormElementBtn {
+  width: 100%;
+  background: #f1f5f9;
+  border: none;
+  color: #0b7b8a;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+  margin-bottom: 2rem;
+}
+
+/* --- Additions for Rubric / Units --- */
+.rubricConfigArea {
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.rubricConfigArea input {
+  border: 1px solid #e2e8f0;
+}
+
+.addFormElementBtn:hover { background: #e2e8f0; }
+
+.submitWrapper {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+  text-align: right;
+  margin-bottom: 4rem;
+}
+
+.saveBtn {
+  background: #0b7b8a;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.saveBtn:hover { background: #08606c; }
+.saveBtn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+/* --- New Styles for Department Dropdown --- */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 8px 0;
+}
+
+.globalSelectInput {
+  border: none;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  color: #0f172a;
+  background: transparent;
+  cursor: pointer;
+}
+
+.globalSelectInput:invalid {
+  color: #94a3b8;
+}
+
+.globalSelectInput option {
+  color: #0f172a;
+}

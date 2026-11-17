@@ -1,0 +1,119 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333333;
+  margin-left: 0.5rem;
+}
+
+.content {
+  padding: 0.5rem 0;
+}
+
+.documentName {
+  font-size: 1rem;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.warning {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cancelButton {
+  flex: 1;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+}
+
+.cancelButton:hover {
+  background-color: #e9ecef;
+}
+
+.deleteButton {
+  flex: 1;
+  background-color: #dc3545;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.deleteButtonDisabled {
+  background-color: #dc354580;
+  cursor: not-allowed;
+}
+
+.deleteButtonDisabled:hover {
+  background-color: #dc354580;
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,502 @@
+/* TherapyTypesByDoctor.module.css */
+:root {
+  --primary-color: #007b8e;
+  --text-color: #333;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --border-color: #e0e4e8;
+  --hover-color: #005f6b;
+}
+
+.componentContainer {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  background: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.componentContainer:hover {
+  transform: translateY(-3px);
+}
+
+.chartSubtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.summaryContainer {
+  margin-bottom: 1.5rem;
+}
+
+.summaryTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.summaryCard {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.summaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summaryCardLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.summaryCardValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* Doctor Performance Section */
+.doctorPerformanceSection {
+  margin-top: 1.5rem;
+}
+
+.doctorPerformanceHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.doctorsListTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+
+/* Slider Wrapper */
+.sliderWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Navigation Buttons */
+.navButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 123, 142, 0.2);
+  z-index: 10;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--hover-color);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 123, 142, 0.3);
+}
+
+.navButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.navButtonLeft {
+  position: absolute;
+  left: -25px;
+  z-index: 10;
+}
+
+.navButtonRight {
+  position: absolute;
+  right: -25px;
+  z-index: 10;
+}
+
+.navArrow {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* Slider Container */
+.sliderContainer {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 30px;
+}
+
+.doctorSlider {
+  display: flex;
+  gap: 1rem;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+}
+
+/* Pagination Dots */
+.paginationDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: #999;
+  transform: scale(1.1);
+}
+
+.dotActive {
+  background: var(--primary-color) !important;
+  transform: scale(1.2);
+}
+.doctorCard {
+  background: var(--card-background);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.3s ease-in;
+  min-width: 280px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.doctorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doctorHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.doctorInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.doctorAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.doctorAvatarText {
+  text-transform: uppercase;
+}
+
+.doctorDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctorName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.totalSessions {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.therapySection {
+  margin-top: 0.75rem;
+}
+
+.therapySectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.therapyRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s ease;
+}
+
+.therapyRow:last-child {
+  border-bottom: none;
+}
+
+.therapyRow:hover {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.therapyInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.therapyType {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.therapyDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.therapyCountBadge {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  min-width: 35px;
+  text-align: center;
+}
+
+.therapyCountBadge:hover {
+  transform: scale(1.05);
+}
+
+.therapyStats {
+  font-size: 0.8rem;
+  color: #666;
+  display: none;
+}
+
+.therapyRow:hover .therapyStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+
+.loader {
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 0.75rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.noDataContainer {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.noDataText {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .componentContainer {
+    padding: 0.5rem;
+  }
+
+  .summaryCards {
+    grid-template-columns: 1fr;
+  }
+
+  .doctorPerformanceHeader {
+    margin-bottom: 1rem;
+  }
+
+  .sliderContainer {
+    padding: 0 20px;
+  }
+
+  .navButtonLeft {
+    left: -15px;
+  }
+
+  .navButtonRight {
+    right: -15px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .navArrow {
+    font-size: 1.5rem;
+  }
+
+  .doctorCard {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sliderContainer {
+    padding: 0 10px;
+  }
+
+  .navButtonLeft {
+    left: -10px;
+  }
+
+  .navButtonRight {
+    right: -10px;
+  }
+
+  .navButton {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .navArrow {
+    font-size: 1.3rem;
+  }
+
+  .doctorCard {
+    min-width: 220px;
+    padding: 0.75rem;
+  }
+
+  .doctorAvatar {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .doctorName {
+    font-size: 1rem;
+  }
+
+  .therapySectionTitle {
+    font-size: 0.9rem;
+  }
+
+  .therapyType {
+    font-size: 0.85rem;
+  }
+
+  .therapyCountBadge {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+.doctorSlider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  min-height: 400px;
+}
+
+@media (max-width: 1024px) {
+  .doctorSlider {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .doctorSlider {
+    grid-template-columns: 1fr;
+  }
+}

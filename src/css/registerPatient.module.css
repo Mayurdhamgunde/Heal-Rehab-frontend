@@ -1,0 +1,505 @@
+:root {
+  --primary: #00685f;
+  --primary-container: #008378;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --error: #ba1a1a;
+  
+  --surface: #f3f5f7; 
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f8fafc;
+  --on-surface: #191c1e;
+  --on-surface-variant: #64748b;
+  --on-secondary-fixed: #131b2e;
+  
+  --shadow-ambient: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+/* Base App Container */
+.container {
+  min-height: 100vh;
+  background-color: var(--surface);
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Expanded wrapper to accommodate 2 columns */
+.pageWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+/* Layout Grid for Main Content */
+.mainContentGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Generic Panel Card Style */
+.panelCard {
+  background-color: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-ambient);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* --- Left Column: Photo Area --- */
+.leftColumn {
+  width: 100%;
+}
+
+.panelCardHeader {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.photoUploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dashedPhotoBox {
+  width: 180px;
+  height: 180px;
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.emptyPhotoState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--on-surface-variant);
+  gap: 0.5rem;
+}
+
+.emptyPhotoState span {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoActionButtons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.uploadBtnLabel {
+  background: var(--surface-container-low);
+  color: var(--primary);
+  border: 1px solid rgba(0, 104, 95, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.uploadBtnLabel:hover {
+  background: #e6f4f1;
+}
+
+.photoHelperText {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Right Column: Form Area --- */
+.rightColumn {
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.verticalAccent {
+  width: 4px;
+  height: 24px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+/* Input Fields & Labels */
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.input,
+.select,
+.textarea,
+.countrySelect {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  background-color: #f1f5f9; 
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-family: inherit;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus,
+.countrySelect:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(0, 104, 95, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.select, .countrySelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Phone Group specific */
+.phoneInputContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.countrySelect {
+  width: 120px;
+}
+
+/* Error States */
+.inputError {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.errorText {
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Action buttons at the bottom, outside the form */
+.formActions {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem; 
+}
+
+.btnCancelSmall {
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  transition: all 0.2s;
+}
+
+.btnCancelSmall:hover {
+  background-color: rgba(0, 104, 95, 0.05);
+  text-decoration: underline;
+}
+
+.submitButtonSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButtonSmall:hover:not(:disabled) {
+  background-color: var(--primary-container);
+}
+
+.submitButtonDisabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Modals */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--surface-container-lowest);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%; 
+  max-width: 500px;
+  max-height: 90vh;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.15);
+}
+
+.modalHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+}
+
+.modalHeader h3 { margin: 0; font-size: 1.1rem; }
+
+.videoPreview {
+  width: 100%;
+  max-height: 50vh;
+  background-color: #000;
+  border-radius: 0.5rem;
+}
+
+.cropContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #191c1e;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.cropImage {
+  display: block;
+  max-width: 100%;
+  max-height: 50vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.cropControls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.cancelBtn, .confirmBtn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.4rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.cancelBtn {
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  border: 1px solid rgba(188, 201, 198, 0.3);
+}
+
+.confirmBtn {
+  background: var(--primary);
+  color: white;
+}
+
+.flipBtn {
+  background: var(--surface-container-low); 
+  border: none; 
+  padding: 4px 10px; 
+  border-radius: 0.4rem; 
+  cursor: pointer; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  color: var(--on-surface-variant);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Alert Messages */
+.successMessage, .errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.successMessage {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+.successMessage svg { color: #22c55e; flex-shrink: 0; }
+
+.errorMessage {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+.errorMessage svg { color: #ef4444; flex-shrink: 0; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .mainContentGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .leftColumn {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .topHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .phoneInputContainer {
+    flex-direction: column;
+  }
+  
+  .countrySelect {
+    width: 100%;
+  }
+
+  .formActions {
+    flex-direction: column-reverse; 
+    justify-content: stretch;
+    gap: 0.75rem;
+  }
+
+  .formActions button {
+    width: 100%;
+    justify-content: center;
+  }
+}

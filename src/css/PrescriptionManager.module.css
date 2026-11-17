@@ -1,0 +1,623 @@
+/* Container */
+.managerCard {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -6px rgba(0, 0, 0, 0.01);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: #ffffff;
+}
+
+.headerTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconWrapper {
+  width: 28px;
+  height: 28px;
+  background: #e0f2f1;
+  color: #007b8e;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.headerTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* Buttons */
+.addBtn {
+  background: #007b8e;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px -1px rgba(0, 123, 142, 0.2);
+}
+
+.addBtn:hover {
+  background: #00695c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 123, 142, 0.3);
+}
+
+.backBtn {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Body */
+.cardBody {
+  padding: 1rem;
+}
+
+/* Scrollbar Customization */
+.cardBodyScrollable {
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 500px;
+  /* Firefox Support */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Webkit (Chrome, Edge, Safari) Scrollbar Support */
+.cardBodyScrollable::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.cardBodyScrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cardBodyScrollable::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.cardBodyScrollable::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.sectionBlock {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Active Prescription Box */
+.activePrescriptionBox {
+  border: 1px solid #b2dfdb;
+  border-radius: 10px;
+  padding: 1rem;
+  background: linear-gradient(to right, #f0fdfa, #ffffff);
+  box-shadow: 0 2px 8px rgba(0, 123, 142, 0.05);
+}
+
+.boxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+.boxHeader > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusActive {
+  background: #d1fae5;
+  color: #047857;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.prescNumber {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.prescDate {
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Active Meds Grid */
+.activeMedsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.activeMedItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.medIcon {
+  width: 26px;
+  height: 26px;
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.medInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.medName {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.85rem;
+}
+
+.medStrength {
+  font-weight: 500;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-left: 4px;
+}
+
+.medMeta {
+  color: #4b5563;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+/* Action Row */
+.actionRow {
+  display: flex;
+  gap: 10px;
+}
+
+.editBtn, .endBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 120px;
+}
+
+.editBtn {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.editBtn:hover {
+  background-color: #e2e8f0;
+}
+
+.endBtn {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+}
+
+.endBtn:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* History Box */
+.historyIcon {
+  color: #64748b;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.historyBox {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.historyBox:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+.historyBoxExpanded {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.08);
+}
+
+.historyTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem 0.25rem 1rem;
+  cursor: pointer;
+}
+
+.historyIdentifier {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusEnded {
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.historyPrescNumber {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.historyDateToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.historyDate {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.toggleIcon {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.historySummary {
+  padding: 0 1rem 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* Expanded Content & Table */
+.expandedContent {
+  border-top: 1px solid #f1f5f9;
+  padding: 1rem;
+  background: #fafbfc;
+}
+
+.tableContainer {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+}
+
+.medTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.medTable th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.medTable td {
+  padding: 0.6rem 0.75rem;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.medTable tr:last-child td {
+  border-bottom: none;
+}
+
+.medTable td strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #0f172a;
+}
+
+.medTable td span {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.freqBadge {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #334155 !important;
+  font-size: 0.75rem;
+}
+
+.notesBox {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+  padding: 0.75rem;
+  border-radius: 6px;
+  color: #854d0e;
+  line-height: 1.4;
+}
+
+/* Empty States */
+.divider {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 1.5rem 0;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 2rem;
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+}
+
+.emptyState p {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin: 0 0 1rem 0;
+}
+
+.emptyAddBtn {
+  background: white;
+  color: #007b8e;
+  border: 1px solid #007b8e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.emptyAddBtn:hover {
+  background: #f0fdfa;
+}
+
+.emptyStateText, .emptyTable {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 1rem;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px dashed #e2e8f0;
+}
+/* ─────────────────────────────────────────────────────────
+   Additions to PrescriptionManager.module.css
+   Paste these at the bottom of your existing file
+   ───────────────────────────────────────────────────────── */
+
+/* ── Form view: title + badge side-by-side ── */
+.headerTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center; /* keeps title centred between back btn + spacer */
+}
+
+/* "Historical" badge shown next to the form title */
+.historicalBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background: #fff7ed;
+  color: #c2710c;
+  border: 1px solid #fed7aa;
+  white-space: nowrap;
+}
+
+/* Warning banner shown above the form when editing a historical record */
+.historicalBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 1rem 0.75rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  font-size: 0.8rem;
+  color: #92400e;
+  line-height: 1.45;
+}
+.historicalBannerIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #d97706;
+  font-size: 0.9rem;
+}
+
+/* ── History row: right-side cluster (date + edit icon + chevron) ── */
+.historyRowActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Small icon-only edit button in the history row header */
+.historyEditIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 7px;
+  border-radius: 6px;
+  border: 1px solid #c7d2da;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.historyEditIconBtn:hover {
+  background: #e0f0f5;
+  border-color: #007b8e;
+  color: #007b8e;
+}
+
+/* ── Edit action row at the bottom of expanded content ── */
+.historyEditRow {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px solid #e9eef2;
+}
+
+/* Full-text edit button inside the expanded section */
+.historyEditBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  border: 1px solid #007b8e;
+  background: transparent;
+  color: #007b8e;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.historyEditBtn:hover {
+  background: #007b8e;
+  color: #fff;
+}
+.phaseListItem {
+  font-size: 0.75rem;
+  color: #4b5563;
+  padding: 3px 0;
+}
+
+.phaseListItem:not(:last-child) {
+  border-bottom: 1px dashed #cbd5e1;
+  margin-bottom: 2px;
+}

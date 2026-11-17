@@ -1,0 +1,801 @@
+/* Container and Layout */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.headerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 123, 142, 0.3);
+  color: white;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Selection Controls */
+.headerContainer {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.selectionInfo {
+  margin-bottom: 1rem;
+}
+
+.selectionText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.selectAllButton {
+  flex: 1;
+  min-width: 150px;
+  background: white;
+  border: 2px solid #007b8e;
+  color: #007b8e;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.selectAllButton:hover {
+  background: #007b8e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.3);
+}
+
+.assignButton {
+  flex: 1;
+  min-width: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.3);
+}
+
+.assignButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #008da0 0%, #006b78 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 142, 0.4);
+}
+
+.assignButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.2) !important;
+}
+
+/* Doctors List */
+.doctorsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.doctorCard {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.doctorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.doctorCardSelected {
+  border-color: #007b8e;
+  background: linear-gradient(135deg, rgba(0, 123, 142, 0.05) 0%, rgba(0, 123, 142, 0.02) 100%);
+}
+
+.doctorCardContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkboxContainer {
+  flex-shrink: 0;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 0.375rem;
+  border: 2px solid #007b8e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.checkboxSelected {
+  background-color: #007b8e;
+}
+
+.doctorImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007b8e;
+  flex-shrink: 0;
+}
+
+.doctorDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctorName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.doctorInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.375rem;
+}
+
+.doctorInfo svg {
+  color: #007b8e;
+  flex-shrink: 0;
+}
+
+.locationBadgeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.locationBadgeContainer svg {
+  color: #007b8e;
+  flex-shrink: 0;
+}
+
+.locationCount {
+  font-size: 0.875rem;
+  color: #007b8e;
+  font-weight: 600;
+}
+
+.adminBadge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.adminBadgeText {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Skeleton Loading */
+.skeletonContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.25rem;
+}
+
+.skeletonBox {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLine {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeletonLineLarge {
+  width: 70%;
+  height: 16px;
+}
+
+.skeletonLineMedium {
+  width: 50%;
+  height: 12px;
+}
+
+.skeletonLineSmall {
+  width: 80%;
+  height: 12px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Empty State */
+.emptyContainer {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.emptyContainer svg {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Refresh Button */
+.refreshContainer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.refreshButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: white;
+  border: 2px solid #007b8e;
+  color: #007b8e;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: #007b8e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.3);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  border-radius: 1.5rem 1.5rem 0 0;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  color: #1a1a1a;
+}
+
+.modalSubtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding: 0 1.5rem 1rem;
+  margin: 0;
+}
+
+.locationsList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.locationsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.locationsList::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.locationsList::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.locationsList::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.locationItem {
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.locationItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.locationItemSelected {
+  border-color: #007b8e;
+  background: linear-gradient(135deg, rgba(0, 123, 142, 0.1) 0%, rgba(0, 123, 142, 0.05) 100%);
+}
+
+.locationItemContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.locationIconContainer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.locationIconContainer svg {
+  color: #007b8e;
+}
+
+.locationInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.locationName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem 0;
+}
+
+.locationAddress {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alreadyAssignedText {
+  font-size: 0.75rem;
+  color: #007b8e;
+  margin: 0.25rem 0 0 0;
+  font-style: italic;
+}
+
+.radioButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #007b8e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.radioButtonSelected {
+  border-width: 2px;
+}
+
+.radioButtonInner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #007b8e;
+}
+
+.modalFooter {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.cancelButton {
+  flex: 1;
+  background: #f8fafc;
+  border: 2px solid #e5e7eb;
+  color: #6b7280;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cancelButton:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #374151;
+}
+
+.confirmButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #007b8e 0%, #005a66 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.3);
+}
+
+.confirmButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #008da0 0%, #006b78 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 142, 0.4);
+}
+
+.confirmButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 4px 15px rgba(0, 123, 142, 0.2) !important;
+}
+
+/* Spinner Animation */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .doctorsList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .skeletonContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.875rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .headerIcon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .headerIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .headerButtons {
+    flex-direction: column;
+  }
+  
+  .selectAllButton,
+  .assignButton {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .doctorsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeletonContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .modalContent {
+    max-height: 90vh;
+  }
+  
+  .modalFooter {
+    flex-direction: column;
+  }
+  
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    padding: 1rem;
+  }
+  
+  .doctorCard {
+    padding: 1rem;
+  }
+  
+  .doctorCardContent {
+    gap: 0.75rem;
+  }
+  
+  .doctorImage {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .doctorName {
+    font-size: 1rem;
+  }
+  
+  .doctorInfo {
+    font-size: 0.8125rem;
+  }
+  
+  .locationItem {
+    padding: 1rem;
+  }
+  
+  .modalHeader {
+    padding: 1rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+  
+  .modalFooter {
+    padding: 1rem;
+  }
+}
+
+/* Focus visible for accessibility */
+.assignButton:focus-visible,
+.selectAllButton:focus-visible,
+.refreshButton:focus-visible,
+.confirmButton:focus-visible,
+.cancelButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid #007b8e;
+  outline-offset: 2px;
+}
+
+.doctorCard:focus-visible,
+.locationItem:focus-visible {
+  outline: 2px solid #007b8e;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .doctorCard,
+  .locationItem {
+    border-width: 3px;
+  }
+  
+  .checkbox,
+  .radioButton {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .doctorCard,
+  .assignButton,
+  .selectAllButton,
+  .refreshButton,
+  .confirmButton,
+  .cancelButton,
+  .locationItem,
+  .modalOverlay,
+  .modalContent {
+    transition: none;
+  }
+  
+  .spinner,
+  .skeletonBox,
+  .skeletonLine {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .headerButtons,
+  .refreshContainer,
+  .modalOverlay {
+    display: none;
+  }
+  
+  .container {
+    background: white;
+  }
+  
+  .doctorCard {
+    break-inside: avoid;
+  }
+}

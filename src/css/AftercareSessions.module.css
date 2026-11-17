@@ -1,0 +1,823 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #00685f;
+  --primary-container: #008378;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --surface: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3d4947;
+  --on-secondary-fixed: #131b2e;
+  --shadow-ambient:
+    0 4px 15px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.05);
+
+  /* Relapse-risk scale — reuses the app's existing status hues so the new
+     signal reads as part of the same system, not a new color language. */
+  --risk-low: #1e8e3e;
+  --risk-low-bg: #e6f4ea;
+  --risk-moderate: #b7791f;
+  --risk-moderate-bg: #fff3d6;
+  --risk-high: #c2410c;
+  --risk-high-bg: #ffe4d1;
+  --risk-critical: #c62828;
+  --risk-critical-bg: #fdeaea;
+  --risk-unknown: #5f6368;
+  --risk-unknown-bg: #f1f3f4;
+}
+
+.dashboardLayout {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fontHeadline {
+  font-family: "Manrope", sans-serif;
+}
+.fontBody {
+  font-family: "Inter", sans-serif;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  background-color: var(--surface-container-lowest);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-ambient);
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.heroBackgroundSvg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 0.05;
+  fill: var(--primary);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+}
+
+/* Centered Loading State */
+.centeredState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100%;
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.heroHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleIcon {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.pageSubtitle {
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 104, 95, 0.2);
+}
+
+/* --- Day Grouping --- */
+.daySection {
+  margin-bottom: 2rem;
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--primary);
+}
+
+.dayTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.dayMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.appointmentCount {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+  background: var(--surface-container-low);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.dayDate {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+}
+
+/* --- Strip Grid Layout (Patient List Style) --- */
+.stripGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stripCard {
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(188, 201, 198, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  animation: fadeInUp 0.4s ease-out both;
+  position: relative;
+}
+
+.stripCard:hover {
+  box-shadow: var(--shadow-ambient);
+  transform: translateX(2px);
+  border-color: rgba(188, 201, 198, 0.5);
+}
+
+.stripMain {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1.2;
+  min-width: 180px;
+}
+
+.stripIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stripText h4 {
+  margin: 0 0 2px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  font-family: "Manrope", sans-serif;
+}
+
+.contactSpan {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.phoneContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.phoneTag {
+  background: var(--surface);
+  color: var(--on-surface-variant);
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.consultationBadge {
+  background-color: #ffecb3;
+  color: #5d4037;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.stripMeta {
+  display: flex;
+  gap: 1rem;
+  flex: 2;
+  justify-content: space-between;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.metaLabel {
+  font-size: 0.6rem;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaValue {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stripActionsVisible {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Appointment specific actions */
+.startButton,
+.resumeButton,
+.finishButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s;
+}
+.startButton {
+  background-color: #aeebbd;
+  color: black;
+}
+.resumeButton {
+  background-color: #ffecb3;
+  border: 1px solid #ffca28;
+  color: #5d4037;
+}
+.finishButton {
+  background-color: #ffa726;
+  color: white;
+}
+
+.startButton:hover,
+.resumeButton:hover,
+.finishButton:hover {
+  transform: scale(1.05);
+}
+
+.whatsappContainer {
+  margin-right: 0.5rem;
+}
+
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: inline-block;
+  letter-spacing: 0.03em;
+}
+
+.statusActive {
+  background-color: #e6f4ea;
+  color: #1e8e3e;
+}
+
+.statusArchived {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+/* --- Patient Follow-up Tile (modernized) ---
+   Scoped to this view only — the classes above (stripCard, phoneTag, etc.)
+   are shared with the all-sessions screen, so the redesign lives in its
+   own class set instead of changing shared ones. */
+
+.tileCard {
+  background: var(--surface-container-lowest);
+  border-radius: 0.85rem;
+  border: 1px solid rgba(188, 201, 198, 0.4);
+  padding: 1.1rem 1.25rem 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.tileCard:hover {
+  box-shadow: var(--shadow-ambient);
+  border-color: rgba(188, 201, 198, 0.55);
+  transform: translateX(2px);
+}
+
+.tileCard:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.tileAccentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--risk-color, transparent);
+}
+
+.tileTopRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tileIdentity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.tileAvatarWrap {
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--ring-color, transparent);
+}
+
+.tileAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+.tileAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tileNameCol {
+  min-width: 0;
+}
+
+.tileNameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tileName {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tileTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  background: var(--surface-container-low);
+  padding: 2px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.tileSubRow {
+  margin-top: 3px;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tileBadgeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.riskBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  color: var(--risk-color);
+  background: var(--risk-bg);
+}
+
+.riskLow {
+  --risk-color: var(--risk-low);
+  --risk-bg: var(--risk-low-bg);
+}
+.riskModerate {
+  --risk-color: var(--risk-moderate);
+  --risk-bg: var(--risk-moderate-bg);
+}
+.riskHigh {
+  --risk-color: var(--risk-high);
+  --risk-bg: var(--risk-high-bg);
+}
+.riskCritical {
+  --risk-color: var(--risk-critical);
+  --risk-bg: var(--risk-critical-bg);
+}
+.riskUnknown {
+  --risk-color: var(--risk-unknown);
+  --risk-bg: var(--risk-unknown-bg);
+}
+
+.tileContactRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0 0;
+  padding-left: calc(46px + 0.75rem);
+}
+
+.contactAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+  transition: background 0.15s ease;
+}
+
+.contactAction:hover {
+  background: var(--surface-container-low);
+}
+
+.tileDivider {
+  border: none;
+  border-top: 1px solid rgba(188, 201, 198, 0.35);
+  margin: 0.85rem 0 0.7rem calc(46px + 0.75rem);
+}
+
+.tileInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.6rem 1rem;
+  padding-left: calc(46px + 0.75rem);
+}
+
+.tileInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tileInfoLabel {
+  font-size: 0.6rem;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tileInfoValue {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tileFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-left: calc(46px + 0.75rem);
+}
+
+.tileChevron {
+  color: var(--on-surface-variant);
+  opacity: 0.5;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.tileCard:hover .tileChevron {
+  transform: translateX(3px);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .tileContactRow,
+  .tileDivider,
+  .tileInfoGrid,
+  .tileFooterRow {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .tileInfoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tileCard,
+  .tileChevron {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Empty States & Loading */
+.noAppointments {
+  text-align: center;
+  padding: 2rem;
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.scrollSentinel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  padding: 1rem 0 2rem;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 104, 95, 0.3);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.floatingButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-ambient);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.floatingButton:hover {
+  transform: scale(1.1);
+}
+
+/* --- Floating View Toggle Controls --- */
+.floatingToggleContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(188, 201, 198, 0.4);
+  border-radius: 2rem;
+  padding: 6px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.floatingToggleContainer:hover {
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.16),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.floatingToggleButton {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.floatingToggleButton.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  box-shadow: 0 2px 8px rgba(0, 104, 95, 0.3);
+}
+
+.floatingToggleButton:hover:not(.active) {
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stripCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .stripMeta {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .metaBlock {
+    min-width: 45%;
+  }
+  .stripActionsVisible {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.25rem;
+    flex-direction: row-reverse;
+  }
+
+  .floatingToggleContainer {
+    bottom: 16px;
+    right: 50%;
+    transform: translateX(50%);
+    width: max-content;
+  }
+}

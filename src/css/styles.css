@@ -1,0 +1,545 @@
+/* Global scrollbar visual removal while keeping functionality */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure all elements use border-box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.active-call-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+
+.active-call-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-call-main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.active-call-video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+/* Video Call Loader Styles */
+.video-call-loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+.call-status-icon {
+  width: 40px;
+  height: 40px;
+  color: #01d6d4;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
+.video-call-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.video-call-loader-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #155263;
+  opacity: 0.7;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.video-call-loader-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.video-call-loader-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.video-call-loader-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.video-call-loader-text {
+  color: white;
+  font-size: 1rem;
+  margin-top: 10px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  color: white;
+  text-transform: uppercase;
+}
+
+.video-placeholder {
+  font-size: 8rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.self-stream {
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  width: 240px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+  background-color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  /* Make sure self-stream is always visible and reasonable size */
+  max-width: 40vw; /* Limit to percentage of viewport width */
+  max-height: 30vh; /* Limit to percentage of viewport height */
+}
+
+.video-off-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.call-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.call-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.call-timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+/* Enhanced Call Controls for Better Responsiveness */
+.call-controls {
+  position: absolute;
+  bottom: 30px; /* Increased from 15px for better visibility on mobile */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px; /* Reduced from 20px to fit better on small screens */
+  padding: 12px;
+  border-radius: 30px;
+  z-index: 999; /* Increased z-index to ensure buttons are always on top */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Added background for better visibility */
+  width: auto;
+  min-width: 250px; /* Ensure minimum width on all devices */
+  justify-content: center;
+}
+
+.call-control-button {
+  width: 56px; /* Equal width and height for a circle */
+  height: 56px; /* Equal width and height for a circle */
+  border-radius: 50%; /* Rounded corners */
+  border: none;
+  position: relative;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Space between text/icon */
+  transition: all 0.2s ease;
+  padding: 0;
+  background-color: #2196f3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+}
+
+.control-button-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Match button shape */
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.call-control-button:hover .control-button-bg {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mute button styling */
+.mute .control-button-bg {
+  background-color: #475569;
+}
+
+.mute.active .control-button-bg {
+  background-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Video button styling */
+.video .control-button-bg {
+  background-color: #475569;
+}
+
+.video.active .control-button-bg {
+  background-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+.call-control-button.end {
+  background-color: #d32f2f;
+}
+
+.call-control-button.end .control-button-bg {
+  background-color: #f44336;
+}
+
+.call-control-button .end:hover .control-button-bg {
+  background-color: #d32f2f;
+}
+
+.call-control-button.fullscreen {
+  background-color: transparent;
+}
+
+.call-control-button.fullscreen .control-button-bg {
+  background-color: #475569;
+}
+
+.call-control-button.fullscreen:hover .control-button-bg {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Improved Mobile Responsiveness */
+@media (max-width: 768px) {
+  .self-stream {
+    width: 140px; /* Larger size for better visibility */
+    height: 105px; /* Maintain aspect ratio */
+    bottom: 120px; /* Move up to avoid overlap with controls */
+    right: 10px;
+    min-height: 105px; /* Ensure minimum height */
+  }
+
+  .call-controls {
+    bottom: 20px;
+    width: 90%;
+    max-width: 320px;
+    min-width: auto;
+    padding: 10px 15px;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.7
+    ); /* Darker background for better visibility */
+    border-radius: 30px;
+    gap: 12px;
+    /* Ensure controls stay in viewport */
+    position: fixed; /* Change from absolute to fixed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .call-control-button {
+    width: 50px; /* Slightly smaller buttons on mobile */
+    height: 50px;
+    font-size: 0.8rem;
+  }
+
+  .call-timer {
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+  }
+
+  .call-info {
+    bottom: 80px; /* Move up to avoid overlap with controls */
+    left: 10px;
+    font-size: 0.8rem;
+    position: fixed; /* Ensure visibility */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .call-controls {
+    bottom: 15px;
+    width: 95%;
+    gap: 10px;
+    padding: 8px 10px;
+    /* Ensure visibility and accessibility */
+    position: fixed;
+    z-index: 9999;
+  }
+
+  .call-control-button {
+    width: 48px; /* Slightly larger for better touch targets */
+    height: 48px;
+  }
+
+  .self-stream {
+    width: 120px; /* Increased size for better visibility */
+    height: 90px;
+    bottom: 85px; /* Adjusted to avoid overlap with controls */
+    right: 5px;
+    min-height: 90px; /* Ensure minimum height */
+  }
+}
+
+/* User list and other styles */
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.user-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.start-call-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-call-button:hover {
+  background-color: #45a049;
+}
+
+.notification-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+.notification-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.notification-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notification-button.accept {
+  background-color: #4caf50;
+  color: white;
+}
+
+.notification-button.reject {
+  background-color: #f44336;
+  color: white;
+}
+
+.notification-button.close {
+  background-color: #2196f3;
+  color: white;
+}
+
+.notification-button:hover {
+  opacity: 0.9;
+}
+
+.calling-status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1e88e5;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.imgIconDiv {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+}
+
+.imgIcon {
+  width: 70px;
+}
+
+.responsive-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Additional responsive styles for mobile */
+@media (max-height: 600px) {
+  .call-controls {
+    bottom: 10px;
+    position: fixed; /* Ensure visibility */
+  }
+
+  .self-stream {
+    bottom: 70px;
+    right: 10px;
+    width: 120px; /* Reasonable size for landscape mode */
+    height: 90px;
+  }
+
+  /* Prevent scrolling issues in landscape mode */
+  .active-call-overlay {
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .active-call-container,
+  .active-call-main,
+  .active-call-video {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Touch target enhancement for mobile */
+@media (pointer: coarse) {
+  .call-control-button {
+    min-width: 48px; /* Minimum recommended touch target size */
+    min-height: 48px;
+  }
+}
+
+/* Custom scrollbar styling - hide visual scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* For Firefox - hide scrollbar but keep functionality */
+html {
+  scrollbar-width: none;
+}
+
+/* For IE/Edge - hide scrollbar but keep functionality */
+body {
+  -ms-overflow-style: none;
+}

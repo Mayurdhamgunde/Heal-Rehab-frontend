@@ -1,0 +1,352 @@
+/* --- THEME CONFIGURATION --- */
+:root {
+  --theme-color: #007cac;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --bg-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* --- MAIN CONTAINER (Screen View) --- */
+.printContainer {
+  width: 210mm;
+  margin: 0 auto;
+  background-color: #555; /* Dark background to see pages clearly on screen */
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- INDIVIDUAL PAGE (A4) --- */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--bg-color);
+  padding: 40px 50px;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  font-size: 11px;
+  line-height: 1.5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow for screen only */
+  overflow: hidden; /* Prevents overflow from breaking layout */
+}
+
+/* --- PRINT SPECIFIC OVERRIDES --- */
+@media print {
+  /* 1. Force the main background to be white, not dark grey (#555) */
+  html,
+  body,
+  .printContainer {
+    background-color: white !important;
+    background: white !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .printContainer {
+    /* 2. Remove flexbox gaps and padding that reveal the background */
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    gap: 0 !important;
+  }
+
+  .page {
+    /* 3. Ensure pages touch each other with no space in between */
+    margin: 0 !important;
+    padding: 20px 40px !important; /* Adjust padding if needed, but keep margins 0 */
+    box-shadow: none !important;
+    border: none !important;
+
+    /* 4. Force full width and A4 height */
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 297mm; /* Standard A4 height */
+
+    /* 5. Handle page breaks cleanly */
+    break-after: page;
+    page-break-after: always;
+  }
+
+  /* Prevent blank page at the end */
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
+/* --- TOP HEADER (Org Info & Logo) --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.headerText {
+  width: 65%;
+}
+
+.orgName {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.orgAddress,
+.orgContact,
+.orgGstin,
+.orgState {
+  margin: 1px 0;
+  font-size: 11px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.logo {
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  object-position: right top;
+}
+
+/* Blue Divider Line */
+.headerDivider {
+  height: 2px;
+  background-color: var(--theme-color);
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* --- INVOICE TITLE --- */
+.invoiceTitle {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--theme-color);
+  margin: 10px 0 20px 0;
+}
+
+/* --- BILLING & DETAILS ROW (Page 1) --- */
+.billingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.billingTo {
+  width: 60%;
+  text-align: left;
+}
+
+.invoiceDetails {
+  width: 35%;
+  text-align: right;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.recipientName {
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.recipientAddress,
+.recipientGstin,
+.recipientState,
+.detailRow {
+  font-size: 11px;
+  margin: 2px 0;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* --- MINI HEADER (Page 2+) --- */
+.miniHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 11px;
+}
+
+/* --- ITEMS TABLE --- */
+.itemsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.itemsTable th {
+  background-color: var(--theme-color);
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: left;
+  border: none;
+}
+
+.itemsTable th:first-child {
+  border-top-left-radius: 2px;
+}
+.itemsTable th:last-child {
+  border-top-right-radius: 2px;
+  text-align: right;
+}
+.itemsTable th:nth-child(4),
+.itemsTable th:nth-child(5),
+.itemsTable th:nth-child(6) {
+  text-align: center;
+}
+
+.itemsTable td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  color: #000;
+}
+
+/* Column Widths */
+.colHash,
+.tdHash {
+  width: 5%;
+}
+.colItem,
+.tdItem {
+  width: 35%;
+}
+.colHsn,
+.tdHsn {
+  width: 10%;
+  text-align: center;
+}
+.colQty,
+.tdQty {
+  width: 8%;
+  text-align: center;
+}
+.colPrice,
+.tdPrice {
+  width: 13%;
+  text-align: right;
+}
+.colGst,
+.tdGst {
+  width: 14%;
+  text-align: right;
+}
+.colAmount,
+.tdAmount {
+  width: 15%;
+  text-align: right;
+  font-weight: 700;
+}
+
+.itemDesc {
+  font-size: 10px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Total Row inside table */
+.totalRow td {
+  border-bottom: 2px solid #000;
+  border-top: 1px solid #000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+.totalLabel {
+  text-align: left;
+}
+
+/* --- FOOTER LAYOUT --- */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Pushes footer to bottom if space permits */
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.footerLeft {
+  width: 55%;
+}
+.footerRight {
+  width: 40%;
+}
+
+.amountWordsLabel,
+.termsLabel {
+  font-weight: 800;
+  font-size: 11px;
+  margin-bottom: 5px;
+  display: block;
+  color: #000;
+}
+
+.amountWords,
+.termsText {
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: #333;
+}
+
+/* Summary Lines */
+.summaryLine {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 11px;
+}
+.summaryLine span:last-child {
+  font-weight: 600;
+}
+
+/* Blue Grand Total Block */
+.grandTotal {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--theme-color);
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+/* --- SIGNATURE --- */
+.signatureSection {
+  margin-top: 40px;
+}
+.payTo {
+  font-weight: 800;
+  font-size: 11px;
+  margin-bottom: 50px;
+}
+.authorizedSignatory {
+  font-weight: 800;
+  font-size: 11px;
+}

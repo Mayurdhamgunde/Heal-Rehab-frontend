@@ -1,0 +1,612 @@
+/* AssessmentsList.module.css */
+
+.pageContainer {
+  padding: 24px 32px; 
+  background-color: #f7f9fa;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a202c;
+}
+
+/* Header Section */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.breadcrumbs {
+  font-size: 0.7rem; 
+  font-weight: 600;
+  color: #718096;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.breadcrumbActive {
+  color: #0b7b8a;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem; 
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.85rem; 
+  color: #64748b;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0b7b8a;
+  color: white;
+  padding: 8px 16px; 
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem; 
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+  background-color: #08606c;
+}
+
+/* Main Card Layout */
+.card {
+  background-color: white;
+  border-radius: 12px; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; 
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1rem; 
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.cardActions {
+  display: flex;
+  gap: 12px;
+  color: #64748b;
+}
+
+.cardActions svg {
+  cursor: pointer;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 12px 24px; 
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table td {
+  padding: 12px 24px; 
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* NEW: Added hover effect and pointer cursor for clickable rows */
+.tableRow {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover {
+  background-color: #f8fafc;
+}
+
+.tableRow:last-child td {
+  border-bottom: none;
+}
+
+/* Template Info Column */
+.templateInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; 
+  height: 32px;
+  background-color: #f0f7f8;
+  color: #0b7b8a;
+  border-radius: 6px;
+}
+
+.nameText {
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 0.85rem; 
+}
+
+.descText {
+  margin: 2px 0 0 0;
+  font-size: 0.75rem; 
+  color: #64748b;
+}
+
+/* Status Pills */
+.statusPill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.65rem; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statusPublished {
+  background-color: #e0f2f1;
+  color: #00796b;
+}
+
+.statusDraft {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.dateText {
+  color: #64748b;
+  font-size: 0.8rem; 
+}
+
+/* Action Buttons */
+.actionGroup {
+  display: flex;
+  gap: 8px; 
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: #94a3b8;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn:hover {
+  color: #0b7b8a;
+  background-color: #f0f7f8;
+}
+
+.iconBtn.delete:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px; 
+  border-top: 1px solid #f1f5f9;
+}
+
+.pageInfo {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.pageControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageNumber, .pageArrow {
+  background: none;
+  border: none;
+  width: 24px; 
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageNumber:hover, .pageArrow:hover {
+  background-color: #f1f5f9;
+}
+
+.pageNumber.active {
+  background-color: #0b7b8a;
+  color: white;
+  font-weight: 600;
+}
+
+.emptyState {
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+
+/* ==================================================
+   VIEW MODAL STYLES 
+================================================== */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.modalHeader div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+}
+
+.closeBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.loadingText {
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+}
+
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.previewBlock {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.sectionHeaderBlock {
+  background: #f8fafc;
+  border-left: 4px solid #334155;
+}
+
+.previewTitle {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.previewSectionTitle {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.previewDesc {
+  margin: 0 0 12px 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.previewContent {
+  margin-top: 12px;
+}
+
+.previewTextInput {
+  width: 100%;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  color: #94a3b8;
+}
+
+.previewOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.previewOptionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.previewInlineBlanks {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: #334155;
+}
+
+.previewBlankInput {
+  background: #f8fafc;
+  border: none;
+  border-bottom: 1px solid #cbd5e1;
+  border-radius: 0;
+  padding: 4px;
+  margin: 0 8px;
+  width: 100px;
+}
+
+.previewTableWrapper {
+  overflow-x: auto;
+}
+
+.previewInnerTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.previewInnerTable th {
+  text-align: left;
+  padding: 8px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.previewInnerTable td {
+  padding: 8px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #0f172a;
+}
+
+.modalFooter {
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+  text-align: right;
+  background: #f8fafc;
+  border-radius: 0 0 12px 12px;
+}
+
+.modalCloseButton {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.2s;
+}
+
+.modalCloseButton:hover {
+  background: #f1f5f9;
+}
+
+/* ==================================================
+   LOADER & SPINNER STYLES 
+================================================== */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f9fa;
+  color: #64748b;
+  gap: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.innerLoadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 12px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: #0b7b8a;
+}
+
+.btnSpinner {
+  animation: spin 1s linear infinite;
+  color: white;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ==================================================
+   DELETE MODAL STYLES 
+================================================== */
+.deleteModalContent {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.deleteModalIcon {
+  background-color: #fee2e2;
+  padding: 16px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteModalTitle {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.deleteModalText {
+  margin: 0 0 28px 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.deleteModalActions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.deleteCancelBtn,
+.deleteConfirmBtn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.deleteCancelBtn {
+  background: white;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+.deleteCancelBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.deleteConfirmBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.deleteConfirmBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.deleteConfirmBtn:disabled,
+.deleteCancelBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

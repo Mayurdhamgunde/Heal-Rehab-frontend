@@ -1,0 +1,460 @@
+.locationPicker {
+  width: 100%;
+}
+
+/* --- MATCHING THE GROUP SESSION INPUT UI --- */
+.locationField {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #111827;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  min-height: 38px; /* Ensures consistent height with normal inputs */
+}
+
+.locationField:hover {
+  border-color: #007b8e;
+}
+
+/* Simulating the input focus state when clicked/active */
+.locationField:focus,
+.locationField:active {
+  outline: none;
+  border-color: #007b8e;
+  box-shadow: 0 0 0 3px rgba(0, 123, 142, 0.1);
+}
+
+.locationField.disabled {
+  background-color: #f9fafb;
+  color: #6b7280;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+}
+
+.locationFieldContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden; /* Prevents text overflow */
+}
+
+.locationNameContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.locationFieldText {
+  font-size: 0.9rem;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.locationFieldText.placeholder {
+  color: #9ca3af; /* Matches new placeholder color */
+}
+
+.preferredBadge {
+  display: flex;
+  align-items: center;
+  background-color: #fef9c3; /* Subtle yellow */
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.starIcon {
+  font-size: 0.7rem;
+  margin-right: 0.2rem;
+}
+
+.preferredText {
+  font-size: 0.65rem;
+  color: #854d0e;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mapButton {
+  background: none;
+  border: none;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.mapButton:hover {
+  transform: scale(1.1);
+}
+
+.dropdownIcon {
+  color: #6b7280; /* Neutral gray like standard selects */
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* --- MODAL UPDATES TO MATCH MODERN CARDS --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 24, 39, 0.4); /* Darker backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modalContainer {
+  background-color: #ffffff;
+  border-radius: 12px; /* Matches new card radius */
+  width: 90%;
+  max-width: 450px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #ffffff;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.closeButton {
+  background: #f3f4f6;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.loadingContainer {
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #007b8e;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+}
+
+.smallSpinner {
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid #007b8e;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.locationsContainer {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+/* Custom Scrollbar */
+.locationsContainer::-webkit-scrollbar {
+  width: 6px;
+}
+.locationsContainer::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.emptyContainer {
+  padding: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emptyText {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.addLocationButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f0fdfa;
+  border: 1px dashed #007b8e;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #007b8e;
+  transition: all 0.2s ease;
+}
+
+.addLocationButton:hover {
+  background-color: #ccfbf1;
+}
+
+.locationItemWrapper {
+  padding: 0.25rem;
+}
+
+.locationItem {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+.locationItem:hover {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.locationItem.selected {
+  background-color: #f0fdfa !important;
+  border-color: #007b8e !important;
+}
+
+.locationItemContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.locationInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.locationNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.locationItemText {
+  font-size: 0.95rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.locationItem.selected .locationItemText {
+  color: #007b8e;
+}
+
+.locationIdText {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.preferredBadgeSmall {
+  background-color: #fef9c3;
+  color: #854d0e;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.locationActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mapIconButton {
+  background-color: #f3f4f6;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.mapIconButton:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.setDefaultButton {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.setDefaultButton:hover {
+  border-color: #eab308;
+  color: #eab308;
+  background-color: #fefce8;
+}
+
+.setDefaultButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* No Locations Popup Styles */
+.popupContainer {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.iconContainer {
+  margin-bottom: 1rem;
+  width: 64px;
+  height: 64px;
+  background-color: #fee2e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noLocationIcon {
+  font-size: 2rem;
+}
+
+.popupTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.popupMessage {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.popupButtonContainer {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.popupButton {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.primaryButton {
+  background-color: #007b8e;
+  color: white;
+  border: none;
+}
+
+.primaryButton:hover {
+  background-color: #005a6b;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.secondaryButton:hover {
+  background-color: #f3f4f6;
+}
+
+.buttonIcon {
+  font-size: 1rem;
+}

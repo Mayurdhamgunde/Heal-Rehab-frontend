@@ -1,0 +1,349 @@
+/* Container & Layout */
+.pageContainer {
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 123, 142, 0.08);
+  overflow: hidden;
+  margin-top: 20px;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #007b8e 0%, #005f6b 100%);
+  padding: 24px 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.closeBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Progress Bar */
+.progressContainer {
+  padding: 20px 30px 0;
+}
+
+.progressBarBg {
+  height: 8px;
+  background-color: #e1e8ed;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #007b8e;
+  transition: width 0.4s ease-in-out;
+}
+
+.progressText {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  color: #5a6c7d;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Form Sections */
+.formBody {
+  padding: 20px 30px 10px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  color: #007b8e;
+  margin-bottom: 24px;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.col {
+  flex: 1;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.mandatory {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #2c3e50;
+  background: #fdfdfd;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007b8e;
+  box-shadow: 0 0 0 3px rgba(0, 123, 142, 0.1);
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.errorText {
+  display: block;
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Radios and Checkboxes */
+.radioGroup, .checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.radioItem, .checkboxItem {
+  padding: 12px 20px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a6c7d;
+  transition: all 0.2s ease;
+  background: white;
+  user-select: none;
+}
+
+.hiddenRadio, .hiddenCheckbox {
+  display: none;
+}
+
+.radioItem:hover, .checkboxItem:hover {
+  border-color: #007b8e;
+  background: rgba(0, 123, 142, 0.02);
+}
+
+.radioSelected, .checkboxSelected {
+  border-color: #007b8e;
+  background: #007b8e;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 123, 142, 0.2);
+}
+
+/* Buttons */
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px 30px;
+  border-top: 1px solid #f1f5f9;
+  background: #fcfdfe;
+}
+
+.navButtonsLeft {
+  display: flex;
+}
+
+.navButtonsRight {
+  display: flex;
+  gap: 12px;
+}
+
+.navButton, .secondaryButton, .primaryButton {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.navButton {
+  background: #f1f5f9;
+  color: #5a6c7d;
+}
+
+.navButton:hover {
+  background: #e2e8f0;
+}
+
+.secondaryButton {
+  background: white;
+  border: 2px solid #007b8e;
+  color: #007b8e;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  background: rgba(0, 123, 142, 0.05);
+}
+
+.primaryButton {
+  background: #007b8e;
+  color: white;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: #006675;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 142, 0.2);
+}
+
+.submitButton {
+  background: #10b981; /* Success Green */
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.errorMessage {
+  margin: 10px 30px 0;
+  padding: 12px;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #f87171;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.successMessage {
+  margin: 10px 30px 0;
+  padding: 12px;
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #4ade80;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Loading State */
+.loadingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e1e8ed;
+  border-top: 5px solid #007b8e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #007b8e;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Options */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .navButtonsRight {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navButtonsLeft {
+    width: 100%;
+  }
+  
+  .navButton, .secondaryButton, .primaryButton {
+    width: 100%;
+    text-align: center;
+  }
+}

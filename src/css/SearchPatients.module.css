@@ -1,0 +1,122 @@
+.safeArea {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 1rem;
+  flex: 1;
+}
+
+.searchContainer {
+  background: white;
+  border-radius: 1rem;
+  padding: 0.40rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid #007b8e;
+}
+
+.searchBar {
+  flex: 1;
+  font-size: 1rem;
+  color: #000000;
+  background: none;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+}
+
+.searchBar::placeholder {
+  color: gray;
+}
+
+.searchButton {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.searchIcon {
+  color: #007b8e;
+  margin-left: 0.75rem;
+}
+
+.patientGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.patientCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.patientCard:hover {
+  transform: translateY(-5px);
+}
+
+.patientName {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.patientDetails {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.noResultsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.noResultsIcon {
+  color: #007b8e;
+}
+
+.noResultsText {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007b8e;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

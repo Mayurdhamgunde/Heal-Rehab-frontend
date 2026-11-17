@@ -1,0 +1,39 @@
+/* Pie Chart Card */
+.pieChartCard {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  height: 300px;
+}
+
+.therapyTypeTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0; /* Adjusted margin for better spacing */
+  margin-top: -0.5rem;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.pieChartContainer {
+  height: 200px; /* Reduced height to fit donut chart better */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 0; /* Remove excessive padding */
+  margin: 0; /* Remove negative margin for cleaner layout */
+}
+
+.noDataMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}

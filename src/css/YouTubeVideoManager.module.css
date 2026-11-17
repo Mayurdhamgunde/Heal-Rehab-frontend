@@ -1,0 +1,267 @@
+.container {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.noVideosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  background-color: #f8fafc;
+}
+
+.noVideosIcon {
+  color: #94a3b8;
+}
+
+.noVideosText {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.videoList {
+  margin-bottom: 20px;
+}
+
+.videoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+
+.videoItem:hover {
+  background-color: #f1f5f9;
+}
+
+.videoInfo {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.youtubeIcon {
+  margin-right: 10px;
+  margin-top: 3px;
+  color: #9bdee8;
+  flex-shrink: 0;
+}
+
+.videoTextContainer {
+  flex: 1;
+  min-width: 0;
+}
+
+.videoTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.videoUrl {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.videoDescription {
+  font-size: 12px;
+  color: #64748b;
+  margin: 4px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.videoActions {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.videoEditButton, .videoDeleteButton {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.videoEditButton {
+  color: #0f766e;
+}
+
+.videoEditButton:hover {
+  background-color: #f0fdfa;
+}
+
+.videoDeleteButton {
+  color: #ef4444;
+}
+
+.videoDeleteButton:hover {
+  background-color: #fee2e2;
+}
+
+.addVideoButton {
+  width: 100%;
+  background-color: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addVideoButton:hover {
+  background-color: #f0fdfa;
+  border-color: #94eaf7;
+}
+
+.addVideoIcon {
+  margin-right: 8px;
+  color: #007b8e;
+}
+
+.addVideoButtonText {
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.videoModalContent {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.videoModalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.videoInputGroup {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.videoInputLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.videoInput {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.videoInput:focus {
+  border-color: #0f766e;
+}
+
+.videoDescriptionInput {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.videoModalButtonsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.videoModalCancelButton {
+  flex: 1;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f1f5f9;
+  color: #64748b;
+  margin-right: 8px;
+  transition: background-color 0.2s;
+}
+
+.videoModalCancelButton:hover {
+  background-color: #e2e8f0;
+}
+
+.videoModalSaveButton {
+  flex: 1;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #007b8e;
+  color: #fff;
+  margin-left: 8px;
+  transition: background-color 0.2s;
+}
+
+.videoModalSaveButton:hover {
+  background-color: #064a54;
+}

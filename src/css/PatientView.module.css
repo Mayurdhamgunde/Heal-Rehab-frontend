@@ -1,0 +1,1485 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #00685f;
+  --primary-container: #008378;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --tertiary: #924628;
+  --error: #ba1a1a;
+
+  --surface: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3d4947;
+  --on-secondary-fixed: #131b2e;
+
+  --shadow-ambient:
+    0 4px 15px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.05);
+  --shadow-hover:
+    0 6px 20px rgba(15, 23, 42, 0.06), 0 10px 35px rgba(15, 23, 42, 0.08);
+}
+
+.dashboardLayout {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  padding: 1.5rem; /* Reduced from 2rem */
+  max-width: 1200px; /* Reduced from 1440px */
+  margin: 0 auto;
+}
+
+.fontHeadline {
+  font-family: "Manrope", sans-serif;
+}
+.fontBody {
+  font-family: "Inter", sans-serif;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  background-color: var(--surface-container-lowest);
+  border-radius: 1rem; /* Reduced from 1.5rem */
+  padding: 1.5rem; /* Reduced from 2rem */
+  box-shadow: var(--shadow-ambient);
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+}
+
+.heroBackgroundWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroBackgroundSvg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 0.05;
+  fill: var(--primary);
+}
+
+.heroContent {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+.avatarImg {
+  width: 96px;
+  height: 96px; /* Reduced from 128px */
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 0 0 4px rgba(137, 245, 231, 0.2);
+}
+.avatarPlaceholder {
+  width: 96px;
+  height: 96px; /* Reduced from 128px */
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+.statusBadgeHero {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.heroDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.heroHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.patientName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+} /* Reduced from 1.875rem */
+.patientId {
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.heroActions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.btnPrimary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 104, 95, 0.2);
+}
+.btnPrimarySmall {
+  background: var(--primary);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btnPrimarySmall:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 104, 95, 0.2);
+}
+.btnSecondarySmall {
+  background: transparent;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(0, 104, 95, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btnSecondarySmall:hover {
+  background: rgba(0, 104, 95, 0.05);
+}
+
+.btnSecondaryIcon {
+  background: transparent;
+  color: var(--primary);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 104, 95, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.btnSecondaryIcon:hover {
+  background: rgba(0, 104, 95, 0.05);
+}
+
+.heroQuickStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(242, 244, 246, 0.8);
+}
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.statIconWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+.statLabel {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  margin: 0 0 0.1rem 0;
+}
+.statValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  word-break: break-all;
+}
+
+/* --- Navigation Tabs --- */
+.tabsNav {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 0.125rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(188, 201, 198, 0.3);
+  scrollbar-width: none;
+}
+.tabsNav::-webkit-scrollbar {
+  display: none;
+}
+.tabBtn {
+  background: none;
+  border: none;
+  padding-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.tabBtn:hover {
+  color: var(--primary);
+}
+.tabBtnActive {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+/* --- Bento Grid Layout --- */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+}
+.colSpan8 {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.colSpan4 {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (min-width: 1024px) {
+  .colSpan8 {
+    grid-column: span 8;
+  }
+  .colSpan4 {
+    grid-column: span 4;
+  }
+}
+
+.bentoCard {
+  background-color: var(--surface-container-lowest);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-ambient);
+  border: none;
+}
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+}
+
+/* --- Care Team --- */
+.teamList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.teamMember {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.teamMember:hover .teamAvatarFallback {
+  filter: brightness(0.95);
+}
+.teamAvatarFallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: filter 0.3s;
+  flex-shrink: 0;
+}
+.teamInfo {
+  flex: 1;
+}
+.teamName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 2px 0;
+}
+.teamRole {
+  font-size: 0.7rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+.btnAddProf {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 2px dashed rgba(188, 201, 198, 0.5);
+  background: transparent;
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btnAddProf:hover {
+  border-color: rgba(0, 104, 95, 0.5);
+  color: var(--primary);
+}
+
+.demoItem p:first-child {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  margin: 0 0 0.15rem 0;
+}
+.demoItem p:last-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+}
+
+/* --- Sub Tabs (Strips) --- */
+.listHeaderRight {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.stripGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.stripCard {
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 5px rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.stripCard:hover {
+  box-shadow: var(--shadow-ambient);
+  transform: translateY(-1px);
+  border-color: rgba(188, 201, 198, 0.4);
+}
+
+.stripMain {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 2;
+  min-width: 180px;
+}
+.stripIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  background: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+.stripText h4 {
+  margin: 0 0 2px 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  font-family: "Manrope", sans-serif;
+}
+.stripText span {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+}
+
+.stripMeta {
+  display: flex;
+  gap: 2rem;
+  flex: 1.5;
+  justify-content: flex-start;
+}
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.metaLabel {
+  font-size: 0.6rem;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.metaValue {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 600;
+}
+
+.stripMetaStatusOnly {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.stripActions {
+  flex-shrink: 0;
+  width: 36px;
+  display: flex;
+  justify-content: flex-end;
+}
+.stripActionsVisible {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtnSoft,
+.actionBtnSoftRed {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.actionBtnSoft {
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+}
+.actionBtnSoft:hover {
+  background: #e2e8f0;
+  color: var(--primary);
+}
+.actionBtnSoftRed {
+  background: rgba(186, 26, 26, 0.1);
+  color: var(--error);
+}
+.actionBtnSoftRed:hover {
+  background: rgba(186, 26, 26, 0.15);
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.statusActive {
+  background: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+}
+.statusInactive {
+  background: rgba(186, 26, 26, 0.1);
+  color: var(--error);
+}
+.statusCompleted {
+  background: #e0f2f5;
+  color: #007b8e;
+}
+.statusArchived {
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+}
+
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(242, 244, 246, 0.5);
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* --- Recovery Progress Chart --- */
+.chartSubtitle {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  margin: -0.5rem 0 1rem 0;
+}
+.chartLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+.chartLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.chartLegendSwatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.chartTooltip {
+  position: absolute;
+  transform: translate(-50%, -130%);
+  background: var(--on-secondary-fixed);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  text-transform: capitalize;
+}
+.chartTooltipDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+/* --- Menus & Modals --- */
+.dropdownMenuRight {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: var(--shadow-hover);
+  border-radius: 0.5rem;
+  padding: 6px;
+  z-index: 1000;
+  margin-top: 6px;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+}
+.menuItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+.menuItem:hover:not(:disabled) {
+  background: rgba(0, 104, 95, 0.05);
+  color: var(--primary);
+}
+.menuIcon {
+  margin-right: 8px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+.menuDivider {
+  height: 1px;
+  background: rgba(188, 201, 198, 0.2);
+  margin: 4px 0;
+}
+.teamAvatarImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(188, 201, 198, 0.2);
+}
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+.careTeamModal {
+  background: var(--surface-container-lowest);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: none;
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(188, 201, 198, 0.2);
+}
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--on-secondary-fixed);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.closeModalBtn:hover {
+  color: var(--error);
+}
+.modalBody {
+  padding: 1.5rem;
+}
+.assignmentControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(188, 201, 198, 0.2);
+  margin-bottom: 1.25rem;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 120px;
+}
+.formGroup label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  margin-bottom: 4px;
+}
+.selectInput {
+  padding: 8px 10px;
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  outline: none;
+  transition: 0.2s;
+  font-family: "Inter", sans-serif;
+}
+.selectInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 104, 95, 0.1);
+}
+.addBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  height: 35px;
+  font-size: 0.8rem;
+}
+.addBtn:disabled {
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  cursor: not-allowed;
+}
+.draftTeamList h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+}
+.teamMemberRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface-container-low);
+  border-radius: 0.25rem;
+  margin-bottom: 6px;
+}
+.memberInfo {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+}
+.deptBadge {
+  background: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  margin-left: 6px;
+  font-weight: 700;
+}
+.removeMemberBtn {
+  background: none;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+.removeMemberBtn:hover {
+  background: rgba(186, 26, 26, 0.1);
+}
+.modalFooter {
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border-top: 1px solid rgba(188, 201, 198, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.cancelBtn {
+  padding: 8px 16px;
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  background: transparent;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.saveBtn {
+  padding: 8px 16px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.centeredState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: var(--on-surface-variant);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(0, 104, 95, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 0.75rem;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.error {
+  background: rgba(186, 26, 26, 0.05);
+  color: var(--error);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(186, 26, 26, 0.2);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.overviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .heroHeaderRow {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .stripCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .stripMeta {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .stripMetaStatusOnly {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .stripActions {
+    width: auto;
+  }
+  .stripActionsVisible {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.chartStockTooltip {
+  position: absolute;
+  transform: translate(-50%, -120%);
+  background-color: #111827;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  z-index: 10;
+  text-align: center;
+  min-width: 100px;
+}
+
+.chartStockTooltipDate {
+  font-size: 0.65rem;
+  color: #9ca3af;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chartStockTooltipScore {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.chartStockTooltipScore span {
+  font-weight: 800;
+  font-size: 1rem;
+}
+.statusIncomplete {
+  background: #fef3c7;
+  color: #d97706;
+}
+.statusDropout {
+  background: #fee2e2;
+  color: #ef4444;
+}
+.statusRefer {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+.statusOpd {
+  background: #f3e8ff;
+  color: #8b5cf6;
+}
+.imageModalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+}
+
+.imageModalImg {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  box-shadow: var(--shadow-hover);
+}
+
+.closeModalBtnFloating {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface-variant);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-ambient);
+  transition: color 0.2s;
+}
+.closeModalBtnFloating:hover {
+  color: var(--error);
+}
+
+/* --- Refactored Inline Styles Mapping --- */
+.pointer {
+  cursor: pointer;
+}
+.relativeContainer {
+  position: relative;
+}
+.riskLow {
+  color: var(--primary);
+}
+.riskModerate {
+  color: #8a5a05;
+}
+.riskHigh {
+  color: #c2410c;
+}
+.riskCritical {
+  color: var(--error);
+}
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.addressText {
+  line-height: 1.5;
+}
+.hFull {
+  height: 100%;
+}
+.editTeamBtn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+}
+.noTeamText {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+}
+.fullWidthCol {
+  grid-column: span 12;
+}
+.journeyWrapper {
+  padding: 0.25rem 0;
+  position: relative;
+}
+.journeyLine {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 19px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary) 0%,
+    rgba(0, 104, 95, 0.1) 100%
+  );
+  border-radius: 2px;
+  z-index: 0;
+}
+.journeyItem {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+}
+.journeyItemMargin {
+  margin-bottom: 1rem;
+}
+.journeyAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--surface-container-lowest);
+  border: 3px solid var(--surface-container-lowest);
+  box-shadow: 0 2px 8px rgba(0, 104, 95, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.journeyAvatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.journeyAvatarFallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.journeyStripCard {
+  flex: 1;
+  display: block;
+  padding: 0.875rem 1rem;
+  cursor: default;
+  min-height: auto;
+}
+.journeyStripHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.journeyStripTitleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.journeyTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.journeyStageTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+}
+.journeyMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.journeyMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.primaryIcon {
+  color: var(--primary);
+}
+.journeyMetaDivider {
+  color: rgba(188, 201, 198, 0.4);
+}
+.journeyNotes {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-container-low);
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+  border-left: 2px solid var(--primary);
+}
+.journeyNotesLabel {
+  color: var(--on-secondary-fixed);
+  margin-right: 4px;
+  font-weight: 700;
+}
+.emptyStatePadded {
+  padding: 1.5rem;
+}
+.stripIconPurple {
+  background: rgba(147, 51, 234, 0.1);
+  color: #9333ea;
+}
+.dropdownMenuRightAbsolute {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 50;
+}
+.sessionFilterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.sessionFilterButtonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+.filterBtn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(188, 201, 198, 0.4);
+  background-color: transparent;
+  color: var(--on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filterBtnActive {
+  border: none;
+  background-color: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+}
+.listHeaderRightCompact {
+  margin-bottom: 0;
+  gap: 8px;
+  align-items: center;
+}
+.btnSecondaryIconSmall {
+  padding: 6px;
+}
+.stripIconOrange {
+  background: rgba(217, 119, 6, 0.1);
+  color: #d97706;
+}
+.paginationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.paginationText {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+}
+.legalWitnessList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.witnessPhotoContainer {
+  margin-top: 0.5rem;
+}
+.witnessPhotoLabel {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 4px;
+}
+.witnessPhotoImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.demoItemFullWidth {
+  grid-column: 1 / -1;
+}
+.lineHeight15 {
+  line-height: 1.5;
+}
+.uploadSpinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--primary);
+}
+.uploadSpinnerText {
+  font-weight: 600;
+}
+.stripGridMargin {
+  margin-top: 1.5rem;
+}
+.stripIconIndigo {
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+}
+.listHeaderRightGap {
+  gap: 8px;
+}
+.hiddenInput {
+  display: none;
+}
+.stripIconGreen {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16a34a;
+}
+.indexModal {
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.indexModalDesc {
+  color: var(--on-surface-variant);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+.indexRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.indexNumber {
+  width: 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+.indexInputFlex {
+  flex: 1;
+  padding: 8px;
+}
+.indexInputSmall {
+  width: 80px;
+  padding: 8px;
+}
+.indexDeleteBtn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+.indexFooterContainer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(188, 201, 198, 0.4);
+  padding-top: 15px;
+}
+.indexFooterTitle {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--on-surface);
+}
+.indexFooterFlex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.indexFooterLabel {
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+}
+.printIcon {
+  margin-right: 6px;
+}
+.langModal {
+  max-width: 380px;
+}
+.langBtnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.langBtn {
+  justify-content: flex-start;
+  padding: 10px 14px;
+  text-align: left;
+}
+/* --- Start Follow-up Session Modal --- */
+.roleModalContent {
+  background-color: var(--surface-container-lowest);
+  padding: 2rem;
+  border-radius: 1.25rem;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: var(--shadow-hover);
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.roleModalTitle {
+  margin: 0;
+  color: var(--on-secondary-fixed);
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: "Manrope", sans-serif;
+  text-align: center;
+}
+
+.roleModalText {
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.roleModalBtnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Base button style for the roles */
+.roleBtnPhysician,
+.roleBtnCounselor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.roleBtnPhysician {
+  background-color: rgba(0, 104, 95, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(0, 104, 95, 0.2);
+}
+
+.roleBtnPhysician:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  transform: translateY(-1px);
+}
+
+.roleBtnCounselor {
+  background-color: #f0fdfa; /* Light teal tint */
+  color: #0f766e; /* Slate/Teal contrast */
+  border: 1px solid #ccfbf1;
+}
+
+.roleBtnCounselor:hover {
+  background-color: #0f766e;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.roleBtnCancel {
+  padding: 0.85rem;
+  background-color: transparent;
+  color: var(--on-surface-variant);
+  border: 1px solid rgba(188, 201, 198, 0.5);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.roleBtnCancel:hover {
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+.hiddenPrintContainer {
+  display: none;
+}
+.addRowBtn {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.addRowIcon {
+  margin-right: 6px;
+}

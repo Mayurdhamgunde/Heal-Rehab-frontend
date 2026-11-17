@@ -1,0 +1,531 @@
+.consultationsTab {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.sectionHeader h3 {
+  color: #007b8e;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.sectionHeader h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #007b8e, #00a8bd);
+  border-radius: 2px;
+}
+
+.addButton {
+  background: linear-gradient(135deg, #007b8e, #00a8bd);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.rightAlignedButton {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+
+.addButton:hover {
+  background: linear-gradient(135deg, #006a7a, #0098ad);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 142, 0.3);
+}
+
+.noRecords {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #6c757d;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  border: 2px dashed #dee2e6;
+  position: relative;
+}
+
+.noRecords::before {
+  content: '📋';
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.consultationsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.consultationCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.consultationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #007b8e, #00a8bd);
+}
+
+.consultationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.consultationHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.consultationIcon {
+  background: rgba(0, 123, 142, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007b8e;
+}
+
+.consultationHeader h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.consultationDatetime {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+.consultationDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.consultationItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.consultationLabel {
+  font-size: 0.9rem;
+  color: #007b8e;
+  font-weight: 600;
+}
+
+.consultationValue {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #007b8e;
+}
+
+.modalHeader {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #007b8e;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007b8e;
+  box-shadow: 0 0 5px rgba(0, 123, 142, 0.3);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.errorInput {
+  border-color: #dc3545;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.errorAlert {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.successAlert {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #007b8e, #00a8bd);
+  color: white;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #006a7a, #0098ad);
+}
+
+.cancelButton {
+  background: #e9ecef;
+  color: #2c3e50;
+}
+
+.cancelButton:hover {
+  background: #dee2e6;
+}
+
+.spinner {
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 1025px) {
+  .sectionHeader {
+    justify-content: space-between;
+  }
+  .addButton {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .consultationsList {
+    grid-template-columns: 1fr;
+  }
+  .consultationDetails {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .consultationsTab {
+    padding: 0.5rem;
+    margin: 0.25rem;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .sectionHeader h3 {
+    font-size: 1.3rem;
+  }
+  .addButton {
+    align-self: center;
+    width: 36px;
+    height: 36px;
+  }
+  .consultationCard {
+    padding: 1rem;
+  }
+  .consultationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .consultationHeaderLeft {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .consultationHeader h4 {
+    font-size: 1.1rem;
+  }
+  .consultationIcon {
+    width: 32px;
+    height: 32px;
+  }
+  .consultationDatetime {
+    font-size: 0.8rem;
+  }
+  .consultationLabel {
+    font-size: 0.85rem;
+  }
+  .consultationValue {
+    font-size: 0.9rem;
+  }
+  .noRecords {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+  .noRecords::before {
+    font-size: 2rem;
+  }
+  .modal {
+    width: 95%;
+    padding: 1rem;
+    max-height: 85vh;
+  }
+  .modalHeader {
+    margin-bottom: 1rem;
+  }
+  .modalHeader h2 {
+    font-size: 1.3rem;
+  }
+  .form {
+    gap: 0.8rem;
+  }
+  .formGroup {
+    gap: 0.3rem;
+  }
+  .label {
+    font-size: 0.85rem;
+  }
+  .input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .textarea {
+    min-height: 40px;
+  }
+  .errorMessage {
+    font-size: 0.8rem;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .consultationsTab {
+    padding: 0.3rem;
+    margin: 0.2rem;
+  }
+  .sectionHeader h3 {
+    font-size: 1.2rem;
+  }
+  .addButton {
+    width: 32px;
+    height: 32px;
+  }
+  .consultationCard {
+    padding: 0.8rem;
+  }
+  .consultationHeader h4 {
+    font-size: 1rem;
+  }
+  .consultationIcon {
+    width: 28px;
+    height: 28px;
+  }
+  .consultationDatetime {
+    font-size: 0.75rem;
+  }
+  .consultationLabel,
+  .consultationValue {
+    font-size: 0.8rem;
+  }
+  .noRecords {
+    padding: 1.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .noRecords::before {
+    font-size: 1.8rem;
+  }
+  .modal {
+    padding: 0.8rem;
+  }
+  .modalHeader h2 {
+    font-size: 1.1rem;
+  }
+  .input {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .rightAlignedButton {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+}

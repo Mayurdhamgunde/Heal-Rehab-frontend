@@ -1,0 +1,273 @@
+/* BlogImageUploader.module.css - Banner Image Styles */
+.container {
+  margin: 16px 0;
+  width: 100%;
+}
+
+.uploadButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 2px dashed #007b8e;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 40px 20px;
+  width: 100%;
+  min-height: 150px;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 123, 142, 0.02);
+}
+
+.uploadButton:hover {
+  background-color: rgba(0, 123, 142, 0.08);
+  border-color: #005a66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 142, 0.15);
+}
+
+.uploadButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.addImageText {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.imagePreviewContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.imagePreview:hover {
+  transform: scale(1.02);
+}
+
+.removeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.removeButton:hover {
+  background-color: rgba(220, 38, 38, 0.8);
+  transform: scale(1.1);
+}
+
+.removeButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.uploadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #007b8e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.cropModalContent {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 95%;
+  max-width: 800px;
+  max-height: 90vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.videoModalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #007b8e;
+  margin-bottom: 20px;
+}
+
+.cropImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  max-height: 60vh;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  margin: 10px 0;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.cropImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ReactCrop {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-block !important;
+}
+
+.ReactCrop__crop-selection {
+  border: 3px solid #007b8e !important;
+  box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactCrop__child-wrapper {
+  max-width: 100% !important;
+}
+
+.ReactCrop__crop-selection .ReactCrop__drag-handle {
+  background-color: #007b8e !important;
+  border: 2px solid #fff !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.videoModalButtonsRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.videoModalCancelButton {
+  flex: 1;
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.videoModalCancelButton:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.videoModalSaveButton {
+  flex: 1;
+  border-radius: 12px;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #007b8e;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 142, 0.2);
+}
+
+.videoModalSaveButton:hover {
+  background-color: #005a66;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 142, 0.3);
+}
+
+.videoModalSaveButton:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cropModalContent {
+    width: 98%;
+    padding: 16px;
+  }
+  
+  .uploadButton {
+    min-height: 150px;
+    padding: 30px 20px;
+  }
+  
+  .videoModalButtonsRow {
+    flex-direction: column;
+  }
+  
+  .videoModalCancelButton,
+  .videoModalSaveButton {
+    width: 100%;
+  }
+}

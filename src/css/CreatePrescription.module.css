@@ -1,0 +1,460 @@
+/* CreatePrescription.module.css */
+
+:root {
+  /* Brand Colors */
+  --primary: #119FB3;
+  --primary-dark: #0d7a8a;
+  --primary-light: #4ccddf;
+  --primary-subtle: rgba(17, 159, 179, 0.08);
+  --accent-glow: rgba(17, 159, 179, 0.4);
+  
+  /* Functional Colors */
+  --danger: #ef4444;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --bg-app: #f1f5f9;
+  --surface: #ffffff;
+  
+  /* Inputs */
+  --input-bg: #f8fafc;
+  --input-border: #e2e8f0;
+  
+  /* Shadows */
+  --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 10px 30px -10px rgba(17, 159, 179, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Background & Layout */
+.container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #eef2f6;
+
+}
+
+/* Main Glass Card */
+.mainCard {
+  width: 100%;
+  max-width: 950px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Section */
+.header {
+  padding: 2.5rem 3rem 1.5rem;
+  border-bottom: 1px solid var(--input-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(17, 159, 179, 0.02));
+}
+
+.titleBlock h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  -webkit-text-fill-color: transparent;
+}
+
+.subTitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.headerIcon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-subtle);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+/* Vitals Ribbon - The "Unique" Feature */
+.vitalsRibbon {
+  padding: 2rem 3rem;
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr; /* Date, Weight, BP */
+  gap: 2rem;
+  align-items: center;
+}
+
+.vitalCard {
+  background: var(--input-bg);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.vitalCard:focus-within {
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(17, 159, 179, 0.15);
+  transform: translateY(-2px);
+}
+
+.vitalLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vitalInput {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  padding: 0;
+}
+
+.vitalInput::placeholder {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* Section Dividers */
+.sectionTitle {
+  padding: 2rem 3rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: var(--input-border);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* Medicine Blocks Layout */
+.medicinesContainer {
+  padding: 0 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.medicineBlock {
+  background: var(--surface);
+  border: 1px solid var(--input-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1.5rem;
+}
+
+.medicineBlock::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  background: var(--primary);
+  border-radius: 0 4px 4px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.medicineBlock:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-float);
+  transform: translateY(-2px);
+}
+
+.medicineBlock:hover::before {
+  opacity: 1;
+}
+
+.indexCircle {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.medicineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Internal Grid for Medicine Fields */
+.medicineRowTop {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+.medicineRowBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Styled Inputs */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.required { color: var(--danger); margin-left: 2px; }
+
+.input, .select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.input:focus, .select:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.errorInput {
+  background: #fff5f5;
+  border-color: #fca5a5;
+}
+
+.errorMsg {
+  color: var(--danger);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Remove Button */
+.removeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.removeBtn:hover {
+  background: #fef2f2;
+  color: var(--danger);
+}
+
+/* Add Button */
+.addBtn {
+  margin: 0 3rem;
+  padding: 1.2rem;
+  border: 2px dashed var(--input-border);
+  background: transparent;
+  border-radius: 16px;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.addBtn:hover {
+  border-color: var(--primary);
+  background: var(--primary-subtle);
+  transform: translateY(-1px);
+}
+
+/* Notes Section */
+.notesContainer {
+  padding: 1rem 3rem 2rem;
+}
+
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+/* Action Footer */
+.footer {
+  padding: 1.5rem 3rem;
+  background: #f8fafc;
+  border-top: 1px solid var(--input-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.85rem 2.5rem;
+  border-radius: 50px; /* Pill shape for classy look */
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btnCancel {
+  background: white;
+  color: var(--text-muted);
+  border: 1px solid var(--input-border);
+}
+
+.btnCancel:hover {
+  background: #f1f5f9;
+  color: var(--text-main);
+}
+
+.btnSubmit {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(17, 159, 179, 0.35);
+}
+
+.btnSubmit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 159, 179, 0.45);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.7;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .vitalsRibbon {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .header, .medicinesContainer, .notesContainer, .footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .medicineBlock {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .indexCircle {
+    margin-bottom: 0.5rem;
+  }
+  
+  .medicineRowTop, .medicineRowBottom {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,715 @@
+.formContainer {
+  padding: 0;
+  font-family: inherit;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 1.2rem;
+}
+
+/* The !important forces your global CSS to stop making this uppercase */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 0.6rem;
+  text-transform: none !important;
+}
+
+/* Vitals Grid */
+.vitalsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.vitalInput {
+  position: relative;
+}
+
+/* ──────────────────────────────────────────────
+   Spinner Animation for Dropdown Loading
+   ────────────────────────────────────────────── */
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.selectSpinner {
+  position: absolute;
+  right: 30px; /* Leaves room for the dropdown arrow */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 123, 142, 0.2);
+  border-top-color: #007b8e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  pointer-events: none; /* Allows clicks to pass through to the select */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) translateY(-50%);
+    transform-origin: center;
+  }
+  100% {
+    transform: rotate(360deg) translateY(-50%);
+    transform-origin: center;
+  }
+}
+
+.vitalInput input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.vitalInput input:focus {
+  border-color: #007b8e;
+  box-shadow: 0 0 0 2px rgba(0, 123, 142, 0.1);
+}
+
+.divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 1.2rem 0;
+}
+
+/* Medicine List */
+.medList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.medItemCard {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.medItemCard:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+.medBadge {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #d1fae5;
+  color: #047857;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+
+.medDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.medDetails strong {
+  color: #1e293b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.genericName {
+  color: #64748b;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.medInstruction {
+  color: #4b5563;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.removeBtn {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #ef4444;
+  cursor: pointer;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.removeBtn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Add Medicine Section */
+.addMedicineSection {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Config Grid */
+.configGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+}
+
+/* The !important forces your global CSS to stop making this uppercase */
+.configItem label,
+.inputGroup label,
+.notesSection label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.3rem;
+  text-transform: none !important;
+}
+
+.pillGroup {
+  display: flex;
+  background: white;
+  padding: 2px;
+  border-radius: 6px;
+  gap: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+.pill,
+.pillActive {
+  flex: 1;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.pill {
+  background: transparent;
+  color: #64748b;
+}
+
+.pill:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.pillActive {
+  background: #007b8e;
+  color: white;
+}
+
+/* Duration Row */
+.durationRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reusable Compact Input Class */
+.compactInput {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.8rem;
+  color: #1e293b;
+  background: white;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.compactInput:focus {
+  border-color: #007b8e;
+  box-shadow: 0 0 0 2px rgba(0, 123, 142, 0.1);
+}
+
+.qtyBox {
+  padding: 0.4rem 0.5rem;
+  background: #e0f2f1;
+  border: 1px solid #b2dfdb;
+  border-radius: 6px;
+  color: #00695c;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.notesInput {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.8rem;
+  font-family: inherit;
+  background: white;
+  resize: vertical;
+  min-height: 50px;
+  box-sizing: border-box;
+}
+
+.notesInput:focus {
+  border-color: #007b8e;
+  box-shadow: 0 0 0 2px rgba(0, 123, 142, 0.1);
+}
+
+/* =========================================
+   STRENGTH INPUT ROW
+   ========================================= */
+.fullWidthItem {
+  grid-column: 1 / -1;
+}
+
+.strengthInputRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.strengthInputRow .pillGroup {
+  flex: 2;
+  min-width: 200px;
+}
+
+.strengthInputRow .compactInput {
+  flex: 1;
+  min-width: 120px;
+}
+
+@media (max-width: 768px) {
+  .vitalsGrid,
+  .configGrid,
+  .durationRow {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .durationRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .strengthInputRow .compactInput {
+    flex: 1 1 100%;
+  }
+}
+
+/* =========================================
+   READ-ONLY TIMING FIELD
+   ========================================= */
+.readOnlyInput {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #0f172a;
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+  box-sizing: border-box;
+  font-weight: 600;
+  outline: none;
+}
+
+.readOnlyInput::placeholder {
+  font-weight: 400;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* =========================================
+   BUTTON STYLES
+   ========================================= */
+
+.addMedBtnContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.smallAddBtn {
+  background: white;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.smallAddBtn.btnHighlight {
+  color: #007b8e;
+  border-color: #007b8e;
+  background: #f0fdfa;
+}
+
+.smallAddBtn.btnHighlight:hover {
+  background: #e0f2f1;
+  transform: translateY(-1px);
+}
+
+.footerAction {
+  margin-top: 1rem;
+}
+
+.saveBtn {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  color: #94a3b8;
+  border: 1px dashed #cbd5e1;
+}
+
+.saveBtnHighlight {
+  background: #007b8e;
+  color: white;
+  border: 1px solid #007b8e;
+  box-shadow: 0 2px 4px -1px rgba(0, 123, 142, 0.2);
+}
+
+.saveBtnHighlight:hover {
+  background: #00695c;
+  transform: translateY(-1px);
+}
+
+.saveBtnHighlight:disabled {
+  background: #94a3b8;
+  border-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+/* ──────────────────────────────────────────────
+   Additions to PrescriptionFormComponent.module.css
+   Add these at the bottom of your existing file
+   ────────────────────────────────────────────── */
+
+/* Med card: two-button action group (edit + delete) */
+.medCardActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Edit button on med card */
+.editMedBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #c7d2da;
+  border-radius: 6px;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 4px 6px;
+  line-height: 1;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.editMedBtn:hover:not(:disabled) {
+  background: #e0f0f5;
+  border-color: #007b8e;
+  color: #007b8e;
+}
+.editMedBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Edit button active state — when this card is the one being edited */
+.editMedBtnActive {
+  background: #e0f0f5;
+  border-color: #007b8e;
+  color: #007b8e;
+}
+
+/* Med card highlighted when it is the one being edited */
+.medItemCardEditing {
+  border-color: #007b8e !important;
+  background: #f0fafa !important;
+  box-shadow: 0 0 0 2px rgba(0, 123, 142, 0.15);
+}
+
+/* Add/edit section header row (label + cancel button side-by-side) */
+.addMedicineSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.addMedicineSectionHeader .sectionLabel {
+  margin-bottom: 0; /* override any bottom margin set in the original */
+}
+
+/* Inline cancel button in the section header */
+.cancelEditBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid #e5a0a0;
+  border-radius: 6px;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.cancelEditBtn:hover {
+  background: #fef2f2;
+  border-color: #c0392b;
+}
+
+/* Secondary "Discard changes" button next to the Update button */
+.cancelEditBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid #e5a0a0;
+  border-radius: 8px;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  transition: background 0.15s;
+}
+.cancelEditBtnSecondary:hover {
+  background: #fef2f2;
+}
+
+/* Edit-mode tint on the add-medication section */
+.addMedicineSectionEditing {
+  border: 1px solid #b2dce4 !important;
+  border-radius: 10px;
+  background: #f7fdfe !important;
+  padding: 12px;
+}
+
+/* "Update medication" button — teal filled to distinguish from Add */
+.btnUpdate {
+  background: #007b8e !important;
+  border-color: #007b8e !important;
+  color: #fff !important;
+}
+.btnUpdate:hover {
+  background: #006070 !important;
+  border-color: #006070 !important;
+}
+
+/* ──────────────────────────────────────────────
+   Dosing Schedules (Phases) Section
+   ────────────────────────────────────────────── */
+
+.scheduleSection {
+  margin-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.2rem;
+}
+
+.phaseCard {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.phaseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.phaseTitle {
+  font-weight: 700;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.removePhaseBtn {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.removePhaseBtn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.phaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.dosingPatternContainer label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #080808;
+  margin-bottom: 0.5rem;
+}
+
+.dosingPatternGroup {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.dosingTimeSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dosingTimeSlot small {
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.dosingInput {
+  width: 42px;
+  text-align: center;
+  padding: 0.4rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #1e293b;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.dosingInput:focus {
+  border-color: #007b8e;
+  box-shadow: 0 0 0 2px rgba(0, 123, 142, 0.1);
+}
+
+.readOnlyBox {
+  padding: 0.4rem 0.6rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: 33px; /* Matches standard input height */
+  display: flex;
+  align-items: center;
+}
+
+.addPhaseBtn {
+  width: auto;
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px dashed #007b8e;
+  color: #007b8e;
+  background: #f0fdfa;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.addPhaseBtn:hover {
+  background: #e0f2f1;
+}
+
+.phaseDisplayItem {
+  font-size: 0.8rem;
+  color: #475569;
+  margin-top: 4px;
+  background: #f8fafc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #f1f5f9;
+}

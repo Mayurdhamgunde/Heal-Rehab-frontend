@@ -1,0 +1,505 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;600;700;800&display=swap");
+
+:root {
+  --primary: #00685f;
+  --primary-container: #008378;
+  --primary-fixed: #89f5e7;
+  --on-primary: #ffffff;
+  --surface: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3d4947;
+  --on-secondary-fixed: #131b2e;
+  --shadow-ambient:
+    0 4px 15px rgba(15, 23, 42, 0.04), 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.dashboardLayout {
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fontHeadline {
+  font-family: "Manrope", sans-serif;
+}
+.fontBody {
+  font-family: "Inter", sans-serif;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  background-color: var(--surface-container-lowest);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-ambient);
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.heroBackgroundSvg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 0.05;
+  fill: var(--primary);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+}
+
+/* Centered Loading State */
+.centeredState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh; /* Pushes the spinner to the vertical center of the view */
+  width: 100%;
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.heroHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--on-secondary-fixed);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleIcon {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.pageSubtitle {
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 104, 95, 0.2);
+}
+
+/* --- Day Grouping --- */
+.daySection {
+  margin-bottom: 2rem;
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--primary);
+}
+
+.dayTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.dayMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.appointmentCount {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+  background: var(--surface-container-low);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.dayDate {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+}
+
+/* --- Strip Grid Layout (Patient List Style) --- */
+.stripGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stripCard {
+  background: var(--surface-container-lowest);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(188, 201, 198, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  animation: fadeInUp 0.4s ease-out both;
+  position: relative;
+}
+
+.stripCard:hover {
+  box-shadow: var(--shadow-ambient);
+  transform: translateX(2px);
+  border-color: rgba(188, 201, 198, 0.5);
+}
+
+.stripMain {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1.2;
+  min-width: 180px;
+}
+
+.stripIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background: var(--surface-container-low);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.stripText h4 {
+  margin: 0 0 2px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--on-secondary-fixed);
+  font-family: "Manrope", sans-serif;
+}
+
+.contactSpan {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.consultationBadge {
+  background-color: #ffecb3;
+  color: #5d4037;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.stripMeta {
+  display: flex;
+  gap: 1rem;
+  flex: 2;
+  justify-content: space-between;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.metaLabel {
+  font-size: 0.6rem;
+  color: var(--on-surface-variant);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaValue {
+  font-size: 0.8rem;
+  color: var(--on-secondary-fixed);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stripActionsVisible {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Appointment specific actions */
+.startButton,
+.resumeButton,
+.finishButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s;
+}
+.startButton {
+  background-color: #aeebbd;
+  color: black;
+}
+.resumeButton {
+  background-color: #ffecb3;
+  border: 1px solid #ffca28;
+  color: #5d4037;
+}
+.finishButton {
+  background-color: #ffa726;
+  color: white;
+}
+
+.startButton:hover,
+.resumeButton:hover,
+.finishButton:hover {
+  transform: scale(1.05);
+}
+
+.whatsappContainer {
+  margin-right: 0.5rem;
+}
+
+.statusBadge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+/* Empty States & Loading */
+.noAppointments {
+  text-align: center;
+  padding: 2rem;
+  background: var(--surface-container-lowest);
+  border-radius: 0.75rem;
+  border: 1px dashed rgba(188, 201, 198, 0.5);
+  color: var(--on-surface-variant);
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 104, 95, 0.3);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.floatingButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-ambient);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.floatingButton:hover {
+  transform: scale(1.1);
+}
+
+/* --- Floating View Toggle Controls --- */
+.floatingToggleContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(188, 201, 198, 0.4);
+  border-radius: 2rem;
+  padding: 6px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.floatingToggleContainer:hover {
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.16),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.floatingToggleButton {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.floatingToggleButton.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  box-shadow: 0 2px 8px rgba(0, 104, 95, 0.3);
+}
+
+.floatingToggleButton:hover:not(.active) {
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stripCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .stripMeta {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .metaBlock {
+    min-width: 45%;
+  }
+  .stripActionsVisible {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.25rem;
+    flex-direction: row-reverse;
+  }
+
+  .floatingToggleContainer {
+    bottom: 16px;
+    right: 50%;
+    transform: translateX(50%);
+    width: max-content;
+  }
+}
